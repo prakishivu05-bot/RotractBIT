@@ -13,27 +13,33 @@ export default function SocialBar() {
             }}
         >
             {/* Instagram */}
-            <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ opacity: 0.9 }}
-            >
-                <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="white"
-                    style={{
-                        transition: "0.2s",
-                        filter: "drop-shadow(0 0 6px rgba(224,25,102,0.8))"
-                    }}
-                    onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
-                    onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                >
-                    <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 12 17a5.5 5.5 0 0 0 0-11zm0 2A3.5 3.5 0 1 1 12 15a3.5 3.5 0 0 1 0-7zm4.8-.6a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2z" />
-                </svg>
-            </a>
+<a
+  href="https://www.instagram.com/rotaract.bit?igsh=MWhlaWFiem10NGxoeg=="
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{ opacity: 0.9 }}
+>
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 24 24"
+    fill="white"
+    style={{
+      transition: "0.2s",
+      filter: "drop-shadow(0 0 6px rgba(225,48,108,0.8))", // Instagram glow
+    }}
+    onMouseOver={(e) =>
+      (e.currentTarget.style.transform = "scale(1.2)")
+    }
+    onMouseOut={(e) =>
+      (e.currentTarget.style.transform = "scale(1)")
+    }
+  >
+    <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.51 5.51 0 0 0 12 7.5zm0 9A3.5 3.5 0 1 1 15.5 13 3.5 3.5 0 0 1 12 16.5zm5.25-9.75a1.25 1.25 0 1 0 1.25 1.25 1.25 1.25 0 0 0-1.25-1.25z" />
+  </svg>
+</a>
+
+
 
             {/* LinkedIn */}
             <a

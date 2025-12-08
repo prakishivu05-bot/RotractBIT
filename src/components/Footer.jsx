@@ -39,7 +39,13 @@ export default function Footer() {
           alt="Zone Yodha"
           style={{ height: "60px", opacity: 0.9 }}
         />
+        <img
+          src="src\assets\logo.jpg"
+          alt="Rotract_Logo"
+          style={{ height: "60px", opacity: 0.9 }}
+        />
       </div>
+      
 
       <div style={{ marginTop: "25px", color: "#999" }}>
         © 2025 Rotaract BIT
