@@ -7,7 +7,7 @@ export default function Navbar() {
       {/* Logo + Home Link */}
       <Link to="/" className="nav-logo" style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}>
         <img
-          src="/src/assets/logo.jpg"
+          src="/public/images/logo.jpg"
           alt="Rotaract BIT Logo"
           style={{
             height: "75px",

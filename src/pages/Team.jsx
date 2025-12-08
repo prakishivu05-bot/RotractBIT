@@ -1,188 +1,42 @@
-
 import TeamCard from "../components/TeamCard"
-
-import Vignesh from "../assets/Vignesh.png"
-import Abdullah from "../assets/Abdullah.png"
-import Anirudh from "../assets/Anirudh.png"
-import Devika from "../assets/Devika.png"
-import Harshitha from "../assets/Harshitha.png"
-import Judah from "../assets/Judah.png"
-import Khushi from "../assets/Khushi.png"
-import Kushal from "../assets/Kushal.png"
-import Manish from "../assets/Manish.png"
-import Medha from "../assets/Medha.png"
-import Mitu_shyam from "../assets/Mitu_shyam.png"
-import Parinetha from "../assets/Parinetha.png"
-import Parwath from "../assets/Parwath.png"
-import Raja from "../assets/Raja.png"
-import Rohit from "../assets/Rohit.png"
-import Sanjana_Rao from "../assets/Sanjana_Rao.png"
-import Sharanya from "../assets/Sharanya.png"
-import Shreya from "../assets/Shreya.png"
-import Shreyas from "../assets/Shreyas.png"
-import Srujan from "../assets/Srujan.png"
-import Sudhanshu from "../assets/Sudhanshu.png"
-import Taksha from "../assets/Taksha.png"
-import Varun from "../assets/Varun.png"
-import Yuvaraj from "../assets/Yuvaraj.png"
-import Prakhyath from "../assets/Prakhyath.png"
-import Vijhortha from "../assets/Vijhortha.png"
-import Rashi from "../assets/Rashi.png"
-import Pragathi from "../assets/Pragathi.png"
-import Prachi from "../assets/Prachi.png"
 
 export default function Team() {
   const members = [
-    {
-      designation: "President",
-      name: "Rtr.Vijhortha VS",
-      logo_path: Vijhortha,
-    },
-    {
-      name: "Rtr.Varun V",
-      designation: "Vice President",
-      logo_path: Varun,
-    },
-    {
-      name: "Rtr.Sharanya S Devadiga",
-      designation: "Club Advisor",
-      logo_path: Sharanya,
-    },
-    {
-      name: "Rtr.Taksha Tangudu",
-      designation: "Secretary",
-      logo_path: Taksha,
-    },
-    {
-      name: "Rtr.Parwath Sri Raju K",
-      designation: "Joint Secretary",
-      logo_path: Parwath,
-    },
-    {
-      designation: "Treasurer",
-      name: "Rtr.Rashi Goyal",
-      logo_path: Rashi,
-    },
-    {
-      name: "Rtr.Mitu Shyam",
-      designation: "Sergeant",
-      logo_path: Mitu_shyam,
-    },
-    {
-      name: "Rtr.Yuvaraj Gowda",
-      designation: "Club Media Lead",
-      logo_path: Yuvaraj,
-    },
-    {
-      name: "Rtr.Kushal",
-      designation: "Professional Service Director",
-      logo_path: Kushal,
-    },
-    {
-      name: "Rtr.Abdullah",
-      designation: "International Service Director",
-      logo_path: Abdullah,
-    },
-    {
-      name: "Rtr.Medha Balaji",
-      designation: "Club Service Director",
-      logo_path: Medha,
-    },
-    {
-      designation: "Community Service Director",
-      name: "Rtr.Srujan",
-      logo_path: Srujan,
-    },
-    {
-      name: "Rtr.Shreya Srinivas",
-      designation: "PR Director",
-      logo_path: Shreya,
-    },
-    {
-      name: "Rtr.Anirudh",
-      designation: "Event Co-Ordinator",
-      logo_path: Anirudh,
-    },
-    {
-      name: "Rtr.Sudhanshu Kumar",
-      designation: "Immediate Past President",
-      logo_path: Sudhanshu,
-    },
-    {
-      designation: "Event Co-Ordinator",
-      name: "Rtr.Parinetha",
-      logo_path: Parinetha,
-    },
-    {
-      name: "Rtr.Sanjana Rao",
-      designation: "Event Co-Ordinator",
-      logo_path: Sanjana_Rao,
-    },
-    {
-      name: "Rtr.Judah Samuel",
-      designation: "Photography",
-      logo_path: Judah,
-    },
-    {
-      designation: "Editorial",
-      name: "Rtr.Khushi Nahata",
-      logo_path: Khushi,
-    },
-    {
-      name: "Rtr.Harshitha Jadhav",
-      designation: "Graphic Designer",
-      logo_path: Harshitha,
-    },
-    {
-      designation: "Graphic Designer",
-      name: "Rtr.Shreyas",
-      logo_path: Shreyas,
-    },
-    {
-      name: "Rtr.Rohith HM",
-      designation: "Graphic Designer",
-      logo_path: Rohit,
-    },
-    {
-      name: "Rtr.Manish",
-      designation: "Marketing",
-      logo_path: Manish,
-    },
-    {
-      name: "Rtr.Prachi Rawat",
-      designation: "Marketing",
-      logo_path: Prachi,
-    },
-    {
-      name: "Rtr.Raja",
-      designation: "Creative",
-      logo_path: Raja,
-    },
-    {
-      name: "Rtr.Devika Sitalgeri",
-      designation: "Creative",
-      logo_path: Devika,
-    },
-    {
-      name: "Rtr.Pragathi",
-      designation: "Creative",
-      logo_path: Pragathi,
-    },
-    {
-      designation: "Web Designer",
-      name: "Rtr.Vignesh BS",
-      logo_path: Vignesh,
-    },
-    {
-      name: "Rtr.Prakhyath S",
-      designation: "Web Designer",
-      logo_path: Prakhyath,
-    },
+    { designation: "President", name: "Rtr.Vijhortha VS", logo_path: "/public/images/Vijhortha.png" },
+    { name: "Rtr.Varun V", designation: "Vice President", logo_path: "/public/images/Varun.png" },
+    { name: "Rtr.Sharanya S Devadiga", designation: "Club Advisor", logo_path: "/public/images/Sharanya.png" },
+    { name: "Rtr.Taksha Tangudu", designation: "Secretary", logo_path: "/public/images/Taksha.png" },
+    { name: "Rtr.Parwath Sri Raju K", designation: "Joint Secretary", logo_path: "/public/images/Parwath.png" },
+    { designation: "Treasurer", name: "Rtr.Rashi Goyal", logo_path: "/public/images/Rashi.png" },
+    { name: "Rtr.Mitu Shyam", designation: "Sergeant", logo_path: "/public/images/Mitu_shyam.png" },
+    { name: "Rtr.Yuvaraj Gowda", designation: "Club Media Lead", logo_path: "/public/images/Yuvaraj.png" },
+    { name: "Rtr.Kushal", designation: "Professional Service Director", logo_path: "/public/images/Kushal.png" },
+    { name: "Rtr.Abdullah", designation: "International Service Director", logo_path: "/public/images/Abdullah.png" },
+    { name: "Rtr.Medha Balaji", designation: "Club Service Director", logo_path: "/public/images/Medha.png" },
+    { designation: "Community Service Director", name: "Rtr.Srujan", logo_path: "/public/images/Srujan.png" },
+    { name: "Rtr.Shreya Srinivas", designation: "PR Director", logo_path: "/public/images/Shreya.png" },
+    { name: "Rtr.Anirudh", designation: "Event Co-Ordinator", logo_path: "/public/images/Anirudh.png" },
+    { name: "Rtr.Sudhanshu Kumar", designation: "Immediate Past President", logo_path: "/public/images/Sudhanshu.png" },
+    { designation: "Event Co-Ordinator", name: "Rtr.Parinetha", logo_path: "/public/images/Parinetha.png" },
+    { name: "Rtr.Sanjana Rao", designation: "Event Co-Ordinator", logo_path: "/public/images/Sanjana_Rao.png" },
+    { name: "Rtr.Judah Samuel", designation: "Photography", logo_path: "/public/images/Judah.png" },
+    { designation: "Editorial", name: "Rtr.Khushi Nahata", logo_path: "/public/images/Khushi.png" },
+    { name: "Rtr.Harshitha Jadhav", designation: "Graphic Designer", logo_path: "/public/images/Harshitha.png" },
+    { designation: "Graphic Designer", name: "Rtr.Shreyas", logo_path: "/public/images/Shreyas.png" },
+    { name: "Rtr.Rohith HM", designation: "Graphic Designer", logo_path: "/public/images/Rohit.png" },
+    { name: "Rtr.Manish", designation: "Marketing", logo_path: "/public/images/Manish.png" },
+    { name: "Rtr.Prachi Rawat", designation: "Marketing", logo_path: "/public/images/Prachi.png" },
+    { name: "Rtr.Raja", designation: "Creative", logo_path: "/public/images/Raja.png" },
+    { name: "Rtr.Devika Sitalgeri", designation: "Creative", logo_path: "/public/images/Devika.png" },
+    { name: "Rtr.Pragathi", designation: "Creative", logo_path: "/public/images/Pragathi.png" },
+    { designation: "Web Designer", name: "Rtr.Vignesh BS", logo_path: "/public/images/Vignesh.png" },
+    { name: "Rtr.Prakhyath S", designation: "Web Designer", logo_path: "/public/images/Prakhyath.png" },
   ]
 
   return (
     <section style={{ textAlign: "center" }}>
       <h1>The Architects of Impact</h1>
+
       <p
         style={{
           maxWidth: "700px",
@@ -193,8 +47,7 @@ export default function Team() {
       >
         Our club is powered by passionate individuals who believe in teamwork,
         leadership, and service. Each member brings unique strengths, ideas, and
-        energy, working together to turn vision into action and ideas into
-        impact.
+        energy, working together to turn vision into action and ideas into impact.
       </p>
 
       <div

@@ -1,6 +1,5 @@
 // src/pages/Contact.jsx  (path may be different in your project)
 import ContactCard from "../components/ContactCard"
-import ShapePerson from "../assets/shape-person.png"   // ✅ 3D image import
 import "./contact.css"                                // ✅ contact styles
 
 export default function Contact() {
@@ -42,7 +41,7 @@ export default function Contact() {
         {/* LEFT: 3D illustration */}
         <div className="contact-ill-wrapper" style={{ flex: 1, minWidth: "260px", textAlign: "center" }}>
           <img
-            src={ShapePerson}
+            src='/public/images/shape-person.png'
             alt="Person contacting Rotaract BIT"
             className="contact-ill"
             style={{ maxWidth: "260px", width: "100%" }}

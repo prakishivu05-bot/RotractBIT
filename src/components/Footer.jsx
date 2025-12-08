@@ -17,30 +17,30 @@ export default function Footer() {
         }}
       >
         <img
-          src="/src/assets/rotaract3191.png"
+          src="/public/images/rotaract3191.png"
           alt="Rotaract District 3191"
           style={{ height: "60px", opacity: 0.9 }}
         />
 
         <img
-          src="/src/assets/rotary3191.png"
+          src="/public/images/rotary3191.png"
           alt="Rotary District 3191"
           style={{ height: "60px", opacity: 0.9 }}
         />
 
         <img
-          src="/src/assets/ufg.png"
+          src="/public/images/ufg.png"
           alt="Unite For Good"
           style={{ height: "60px", opacity: 0.9 }}
         />
 
         <img
-          src="/src/assets/zoneyodha.png"
+          src="/public/images/zoneyodha.png"
           alt="Zone Yodha"
           style={{ height: "60px", opacity: 0.9 }}
         />
         <img
-          src="src\assets\logo.jpg"
+          src="public/images/logo.jpg"
           alt="Rotract_Logo"
           style={{ height: "60px", opacity: 0.9 }}
         />
