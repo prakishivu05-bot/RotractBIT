@@ -27,7 +27,7 @@ export default function Home() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url('/public/images/Gallery1.jpeg')",
+            backgroundImage: "url('/images/Gallery1.jpeg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             filter: "brightness(0.45)",

@@ -41,7 +41,7 @@ export default function Contact() {
         {/* LEFT: 3D illustration */}
         <div className="contact-ill-wrapper" style={{ flex: 1, minWidth: "260px", textAlign: "center" }}>
           <img
-            src='/public/images/shape-person.png'
+            src='/images/shape-person.png'
             alt="Person contacting Rotaract BIT"
             className="contact-ill"
             style={{ maxWidth: "260px", width: "100%" }}

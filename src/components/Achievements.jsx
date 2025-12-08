@@ -8,7 +8,7 @@ export default function Achievements() {
 
       <div className="ach-list">
         <div className="ach-card">
-          <img src="public/images/Awards.jpg" alt="Achievement 1" />
+          <img src="/images/Awards.jpg" alt="Achievement 1" />
         </div>
       </div>
     </section>
