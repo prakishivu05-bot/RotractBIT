@@ -1,111 +1,299 @@
-import { useNavigate } from "react-router-dom"
-
-import Achievements from "../components/Achievements"
-import Gallery from "../components/Gallery"
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import CountUp from "react-countup";
+import { 
+  Droplet, 
+  BookOpen, 
+  BriefcaseMedical, 
+  Coins, 
+  Sprout, 
+  HeartHandshake, 
+  Settings,
+  Users,
+  Globe,
+  Briefcase,
+  GraduationCap
+} from "lucide-react";
+import FAQ from "../components/FAQ";
+import Gallery from "../components/Gallery";
+import Achievements from "../components/Achievements";
 
 export default function Home() {
   const navigate = useNavigate();
 
+  // Floating particles mapped to RVCE's scattered dots
+  const particles = [
+    { color: "#22c55e", top: "10%", left: "20%", size: "8px" },
+    { color: "#e91e63", top: "25%", right: "15%", size: "12px" },
+    { color: "#3b82f6", top: "40%", left: "5%", size: "10px" },
+    { color: "#f97316", top: "70%", right: "20%", size: "8px" },
+    { color: "#22c55e", bottom: "10%", left: "30%", size: "12px" },
+  ];
+
+  const focusAreas = [
+    { title: "WATER, SANITATION AND HYGIENE", icon: <Droplet size={50} color="#2563eb" />, bg: "#eff6ff" },
+    { title: "PEACEBUILDING AND CONFLICT PREVENTION", icon: <HeartHandshake size={50} color="#0369a1" />, bg: "#fce7f3" },
+    { title: "MATERNAL AND CHILD HEALTH", icon: <BriefcaseMedical size={50} color="#7e22ce" />, bg: "#dcfce7" },
+    { title: "ENVIRONMENT", icon: <Sprout size={50} color="#16a34a" />, bg: "#faf5ff" },
+    { title: "BASIC EDUCATION AND LITERACY", icon: <BookOpen size={50} color="#ea580c" />, bg: "#fff7ed" },
+    { title: "COMMUNITY ECONOMIC DEVELOPMENT", icon: <Coins size={50} color="#0d9488" />, bg: "#ecfeff" },
+    { title: "DISEASE PREVENTION AND TREATMENT", icon: <HeartHandshake size={50} color="#dc2626" />, bg: "#e0f2fe" }
+  ];
+
+  const [activeService, setActiveService] = React.useState(null);
+
+  const servicesData = [
+    { id: "community", title: "COMMUNITY", description: "Empowering local change through grassroots action.", icon: <Users size={48} className="text-white" />, bgImage: "/images/community_service_1775842206321.png" },
+    { id: "international", title: "INTERNATIONAL", description: "Bridging cultures and solving global challenges.", icon: <Globe size={48} className="text-white" />, bgImage: "/images/international_service_1775842258680.png" },
+    { id: "vocational", title: "VOCATIONAL", description: "Skill-building and mentorship for professional growth.", icon: <Briefcase size={48} className="text-white" />, bgImage: "/images/vocational_service_1775842325242.png" },
+    { id: "youth", title: "YOUTH", description: "Inspiring the next generation of leaders.", icon: <GraduationCap size={48} className="text-white" />, bgImage: "/images/youth_service_1775842351347.png" },
+  ];
+
   return (
     <>
-      {/* HERO SECTION */}
-      <section
-        className="hero"
-        style={{
-          position: "relative",
-          height: "70vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          color: "white",
-          overflow: "hidden",
-        }}
-      >
-        {/* Background Image */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url('/images/Gallery1.jpeg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "brightness(0.45)",
-            zIndex: 1,
-          }}
-        ></div>
-
-        {/* Neon Glow Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(circle at center, rgba(224, 25, 102, 0.25), transparent 70%)",
-            animation: "pulseGlow 6s ease-in-out infinite",
-            zIndex: 2,
-          }}
-        ></div>
-
-        {/* Hero Content */}
-        <div style={{ zIndex: 3, maxWidth: "850px" }}>
-          <h1
-            style={{
-              fontSize: "3rem",
-              fontWeight: "700",
-              marginBottom: "20px",
+      {/* 1. RVCE-STYLE HERO SECTION */}
+      <section style={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        boxSizing: "border-box",
+        padding: "120px 5vw 40px",
+        maxWidth: "1400px",
+        margin: "0 auto",
+        overflow: "hidden"
+      }}>
+        {/* Floating Particles */}
+        {particles.map((p, i) => (
+          <motion.div
+            key={i}
+            animate={{ 
+              x: [0, (i % 2 === 0 ? 30 : -30), 0],
+              y: [0, (i % 2 === 0 ? -40 : 40), 0],
+              rotate: [0, 180, 360],
+              scale: [1, 1.3, 1]
             }}
-          >
-            Rotaract Club of BIT
-          </h1>
-
-          <p
+            transition={{ duration: 5 + i * 2, repeat: Infinity, ease: "linear" }}
             style={{
-              opacity: 0.85,
-              lineHeight: "1.6",
-              fontSize: "1.1rem",
-              marginBottom: "35px",
+              position: "absolute",
+              width: p.size,
+              height: p.size,
+              backgroundColor: p.color,
+              borderRadius: "50%",
+              top: p.top,
+              bottom: p.bottom,
+              left: p.left,
+              right: p.right,
+              opacity: 0.6
             }}
-          >
-            Creating impact through service, leadership, teamwork and innovation.
+          />
+        ))}
+
+        {/* Text Content */}
+        <motion.div 
+          style={{ flex: "1 1 50%", maxWidth: "600px", zIndex: 2, display: "flex", flexDirection: "column", justifyContent: "center" }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", width: "100%" }}>
+            <h1 style={{ 
+              fontSize: "3.5rem", 
+              lineHeight: "1.15", 
+              marginBottom: "15px", 
+              color: "var(--text-primary)",
+              fontWeight: "800",
+              letterSpacing: "-1px"
+            }}>
+              Rotaract<br/>Club Of BIT
+            </h1>
+            <p style={{ 
+              color: "var(--text-secondary)", 
+              fontSize: "1.25rem", 
+              marginBottom: "35px", 
+              fontWeight: "500"
+            }}>
+              Unite for Good
+            </p>
+            <div style={{ display: "flex", gap: "20px", alignItems: "center", width: "100%" }}>
+              <button onClick={() => navigate("/about")} className="btn" style={{ padding: "15px 35px", fontSize: "0.95rem" }}>
+                ABOUT US
+              </button>
+              <button 
+                onClick={() => navigate("/members")} 
+                style={{ 
+                  background: "transparent", 
+                  border: "none", 
+                  color: "var(--text-primary)", 
+                  fontWeight: "700", 
+                  fontFamily: "Montserrat", 
+                  cursor: "pointer",
+                  fontSize: "0.95rem",
+                  letterSpacing: "0.5px"
+                }}
+                onMouseEnter={(e) => e.target.style.color = "var(--accent-pink)"}
+                onMouseLeave={(e) => e.target.style.color = "var(--text-primary)"}
+              >
+                OUR TEAM
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Dynamic Morphing Blob Image */}
+        <motion.div 
+          style={{ flex: "1 1 50%", display: "flex", justifyContent: "flex-end", position: "relative" }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <motion.img 
+            src="/images/Gallery1.jpeg" 
+            alt="Rotaract Team" 
+            animate={{ 
+              borderRadius: [
+                "60% 40% 30% 70% / 60% 30% 70% 40%",
+                "30% 70% 70% 30% / 30% 30% 70% 70%",
+                "60% 40% 30% 70% / 60% 30% 70% 40%"
+              ]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            style={{ 
+              width: "100%", 
+              maxWidth: "600px", 
+              height: "450px",
+              objectFit: "cover",
+              boxShadow: "0 20px 50px rgba(192, 31, 92, 0.2)"
+            }} 
+          />
+        </motion.div>
+      </section>
+
+      {/* 2. ABOUT US (RVCE STYLE Text Block) */}
+      <section style={{ maxWidth: "1200px", margin: "0 auto", padding: "80px 5vw 40px" }}>
+        <h2 style={{ fontSize: "2rem", color: "var(--text-primary)", marginBottom: "30px", textTransform: "uppercase" }}>
+          Rotaract Club of BIT
+        </h2>
+        <div style={{ color: "var(--text-secondary)", lineHeight: "1.8", fontSize: "1.05rem", display: "flex", flexDirection: "column", gap: "20px" }}>
+          <p>
+            The Rotaract Club of BIT is an institution-based Rotaract Club established to foster community service, leadership development, and professional growth among young adults.
           </p>
-
-          <button onClick={() => setTimeout(() => navigate("/team"), 3 * 1000)} className="btn" style={{ padding: "14px 32px" }}>
-            Our Team
-          </button>
+          <p>
+            As one of the most active and distinguished Rotaract clubs, we strive to make a meaningful impact through a wide range of initiatives that provide members with opportunities for leadership, skill development, and social responsibility. Throughout the year, we organize various initiatives, including Blood Donation Camps, Paper Drives, and numerous community events.
+          </p>
         </div>
       </section>
 
-      {/* MAIN TEXT */}
-      <section style={{ textAlign: "center" }}>
-        <p
-          style={{
-            maxWidth: "850px",
-            margin: "40px auto",
-            opacity: 0.85,
-            lineHeight: "1.8",
-          }}
-        >
-          The Rotaract Club of Bangalore Institute of Technology is a dynamic
-          community of young leaders driven by service, creativity, and a passion
-          for making a real impact. We bring together students who believe in
-          leadership, integrity, teamwork, growth, and meaningful friendships
-          while working toward a better society.
-          <br />
-          <br />
-          With strong teamwork, innovative ideas, and bold, creative events, we
-          aim to inspire those around us and create experiences that matter. Our
-          projects span across community service, professional development,
-          educational outreach, and impactful campus initiatives.
-          <br />
-          <br />
-          As a youth-led movement, we strive to learn, lead, and uplift—
-          turning our ideas into action and our actions into lasting change.
-        </p>
+      {/* 3. OUR SERVICES (Expandable Accordion) */}
+      <section className="py-20 px-6 lg:px-12 max-w-7xl mx-auto font-['Inter']">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-deep-navy font-['Montserrat'] mb-4 uppercase tracking-tight">
+            Our Services
+          </h2>
+          <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
+            The four primary avenues through which we make a lasting impact.
+          </p>
+        </div>
+
+        <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[500px]">
+          {servicesData.map((service, idx) => {
+            const isActive = activeService === idx;
+            return (
+              <motion.div
+                key={service.id}
+                onHoverStart={() => setActiveService(idx)}
+                onHoverEnd={() => setActiveService(null)}
+                // Mobile layout adjusts height, Desktop layout adjusts width (Accordion effect)
+                animate={{
+                  width: window.innerWidth >= 768 ? (isActive ? "40%" : activeService !== null ? "20%" : "25%") : "100%",
+                  height: window.innerWidth < 768 ? (isActive ? "300px" : "150px") : "100%"
+                }}
+                transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                className={`group relative overflow-hidden cursor-pointer rounded-3xl flex flex-col justify-end bg-slate-900 transition-all duration-300 border-none ${
+                  isActive 
+                    ? "shadow-[0_0_40px_rgb(233,30,99,0.4)] z-10 scale-[1.02]" 
+                    : "shadow-md opacity-90 scale-100 hover:opacity-100"
+                }`}
+              >
+                {/* Background Image */}
+                <motion.div 
+                  initial={false}
+                  animate={{ scale: isActive ? 1.05 : 1 }}
+                  transition={{ duration: 6, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${service.bgImage})` }}
+                />
+                
+                {/* Dark Gradient Overlay for Readability */}
+                <div className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-90' : 'opacity-70 group-hover:opacity-60'}`}></div>
+
+                {/* Content Overlay */}
+                <div className="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
+                  <motion.div 
+                    initial={false}
+                    animate={{ 
+                      y: isActive ? 0 : 10, 
+                      scale: isActive ? 1 : 0.9,
+                      opacity: isActive ? 1 : 0.8
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="mb-3"
+                  >
+                    <div className={`p-4 rounded-full inline-flex ${isActive ? 'bg-vibrant-pink shadow-lg shadow-pink-500/50' : 'bg-white/10 backdrop-blur-md'} transition-colors duration-300`}>
+                      {service.icon}
+                    </div>
+                  </motion.div>
+                  
+                  <motion.h3 
+                    layout="position"
+                    className="text-xl md:text-3xl font-black text-white font-['Montserrat'] tracking-tight mb-1 uppercase"
+                  >
+                    {service.title}
+                  </motion.h3>
+
+                  <AnimatePresence>
+                    {(isActive || window.innerWidth < 768) && (
+                      <motion.p
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                        animate={{ opacity: 1, height: "auto", marginTop: "8px" }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-slate-200 font-medium leading-relaxed text-sm md:text-base"
+                      >
+                        {service.description}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </section>
 
-      <Gallery />
+      {/* 4. THE FOUR-WAY TEST */}
+      <section style={{ padding: "100px 5vw", maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          style={{ width: "100%", borderRadius: "20px", overflow: "hidden", boxShadow: "0 20px 50px rgba(0,0,0,0.15)" }}
+        >
+          <img 
+            src="/images/fourwaystep.jpg.png" 
+            alt="The Four-Way Test" 
+            style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
+          />
+        </motion.div>
+      </section>
+      
       <Achievements />
+      <Gallery />
+      <FAQ />
+
     </>
-  )
+  );
 }

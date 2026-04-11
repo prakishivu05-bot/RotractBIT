@@ -1,0 +1,34 @@
+[
+  {
+    "id": "beach-cleanup",
+    "title": "Coastal Beach Cleanup Drive",
+    "date": "2026-04-10",
+    "category": "Service",
+    "description": "Join us to clean the local coastline and learn about marine conservation.",
+    "sourceFile": "beach_cleanup_flyer.pdf"
+  },
+  {
+    "id": "hackathon-2026",
+    "title": "Rotaract Inno-Hackathon",
+    "date": "2026-04-12",
+    "category": "Tech",
+    "description": "A 24-hour coding marathon building solutions for local community problems.",
+    "sourceFile": "hackathon_details.pdf"
+  },
+  {
+    "id": "sports-meet",
+    "title": "Inter-College Sports Meet",
+    "date": "2026-04-15",
+    "category": "Sports",
+    "description": "Annual sports festival featuring basketball, track, and football tournaments.",
+    "sourceFile": "sports_poster.pptx"
+  },
+  {
+    "id": "blood-donation",
+    "title": "Mega Blood Donation Camp",
+    "date": "2026-04-18",
+    "category": "Service",
+    "description": "Partnering with the Red Cross to host a massive campus blood donation drive.",
+    "sourceFile": "blood_donation.pdf"
+  }
+]

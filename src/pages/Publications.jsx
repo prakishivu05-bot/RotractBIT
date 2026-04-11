@@ -1,101 +1,102 @@
+import { motion } from "framer-motion";
+import { FileText, Calendar, Download } from "lucide-react";
+
 export default function Publications() {
-  const annualReportLink = "/docs/annual-report.pdf"
-  const eventCalendarLink = "/docs/event-calender.pptx" 
+  const documents = [
+    {
+      title: "Rotaract BIT Club Report & Highlights",
+      link: "/docs/annual-report.pdf",
+      description: "A detailed digital report capturing the major service projects, flagship events, and leadership activities carried out by Rotaract BIT.",
+      icon: <FileText size={32} color="#E01966" />
+    },
+    {
+      title: "Future Event Calendar: 2025–2026",
+      link: "/docs/event-calender.pptx",
+      description: "An official planning document showcasing our upcoming service projects, awareness drives, and fellowship activities scheduled for the year ahead.",
+      icon: <Calendar size={32} color="#1EB8A6" />
+    }
+  ];
 
   return (
-    <section style={{ textAlign: "center", padding: "40px 20px" }}>
-      <h1>📚 Publications</h1>
-      <p
+    <section style={{ textAlign: "center", paddingTop: "120px" }}>
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        Publications & Resources
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
         style={{
           maxWidth: "750px",
           margin: "0 auto",
           opacity: 0.85,
           lineHeight: "1.8",
-          marginBottom: "50px",
+          marginBottom: "60px",
         }}
       >
         A growing archive of our initiatives, milestones, and moments of impact — documented for
         today and preserved for tomorrow.
-      </p>
+      </motion.p>
 
       <div
         style={{
-          display: "flex",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
           justifyContent: "center",
           gap: "30px",
-          flexWrap: "wrap",
+          maxWidth: "900px",
+          margin: "0 auto"
         }}
       >
-        {/* CARD 1: Annual Club Report */}
-        <a
-          href={annualReportLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="card"
-          style={{
-            width: "300px",
-            padding: "25px",
-            cursor: "pointer",
-            textDecoration: "none",
-            color: "inherit",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-            transition: "box-shadow 0.3s ease-in-out",
-          }}
-          onMouseEnter={e =>
-            (e.currentTarget.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.2)")
-          }
-          onMouseLeave={e =>
-            (e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)")
-          }
-        >
-          <h3>Rotaract BIT Club Report &amp; Highlights</h3>
-          <p style={{ opacity: 0.7, textAlign: "left" }}>
-            A detailed digital report capturing the major service projects, flagship events, and
-            leadership activities carried out by Rotaract BIT during the academic year. This
-            document reflects our commitment to service, teamwork, and meaningful community impact.
-          </p>
-          <p style={{ marginTop: "15px", fontWeight: "bold", color: "#e91e63" }}>
-            Click to View Document
-          </p>
-        </a>
-
-        {/* CARD 2: Future Event Calendar */}
-        <a
-          href={eventCalendarLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="card"
-          style={{
-            width: "300px",
-            padding: "25px",
-            cursor: "pointer",
-            textDecoration: "none",
-            color: "inherit",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-            transition: "box-shadow 0.3s ease-in-out",
-          }}
-          onMouseEnter={e =>
-            (e.currentTarget.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.2)")
-          }
-          onMouseLeave={e =>
-            (e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)")
-          }
-        >
-          <h3>Future Event Calendar: 2025–2026</h3>
-          <p style={{ opacity: 0.7, textAlign: "left" }}>
-            An official planning document showcasing our upcoming service projects, awareness
-            drives, professional development programs, and fellowship activities scheduled for the
-            year ahead.
-          </p>
-          <p style={{ marginTop: "15px", fontWeight: "bold", color: "#e91e63" }}>
-            Click to View Document
-          </p>
-        </a>
+        {documents.map((doc, index) => (
+          <motion.a
+            key={doc.title}
+            href={doc.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: index * 0.15 }}
+            className="card"
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: "40px 30px",
+            }}
+            whileHover={{ y: -10, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.45)" }}
+          >
+            <div style={{
+              background: "rgba(255,255,255,0.05)",
+              padding: "20px",
+              borderRadius: "50%",
+              marginBottom: "20px"
+            }}>
+              {doc.icon}
+            </div>
+            <h3 style={{ fontSize: "1.2rem", marginBottom: "15px", minHeight: "56px", display: "flex", alignItems: "center" }}>
+              {doc.title}
+            </h3>
+            <p style={{ opacity: 0.7, fontSize: "0.95rem", lineHeight: "1.6", flex: 1, marginBottom: "25px" }}>
+              {doc.description}
+            </p>
+            <span className="btn" style={{ 
+              display: "flex", 
+              alignItems: "center", 
+              gap: "8px", 
+              width: "100%", 
+              justifyContent: "center" 
+            }}>
+              <Download size={18} /> Download
+            </span>
+          </motion.a>
+        ))}
       </div>
     </section>
-  )
+  );
 }

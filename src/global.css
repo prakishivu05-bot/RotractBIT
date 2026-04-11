@@ -1,76 +1,131 @@
-html,
-body {
-  height: 100%;
-  background: linear-gradient(to bottom, var(--bg-top), var(--bg-bottom)) fixed;
-  background-attachment: fixed;
-  overscroll-behavior: none;
-  margin: 0;
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@theme {
+  --color-deep-navy: #001F3F;
+  --color-vibrant-pink: #E91E63;
 }
 
-@keyframes pulseGlow {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-
-  50% {
-    transform: scale(1.15);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 :root {
-  --bg-top: #050B26;
-  --bg-bottom: #0A0F2E;
-  --accent-pink: #E01966;
-  --accent-left: #EE2E84;
-  --accent-right: #1EB8A6;
-  --text-primary: #FFFFFF;
-  --text-secondary: #C9CEDA;
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #FFFFFF;
+  --accent-pink: #D91B5C; /* Rotaract Cranberry */
+  --accent-light: #FF3377;
+  --accent-gold: #F7A81B; /* Rotaract Gold */
+  --accent-blue: #005DAA; /* Rotary Blue */
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-light: #64748B;
+  --blob-1: rgba(217, 27, 92, 0.15);
+  --blob-2: rgba(247, 168, 27, 0.15);
+  --blob-3: rgba(0, 93, 170, 0.1);
 }
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(to bottom, var(--bg-top), var(--bg-bottom));
+[data-theme='dark'] {
+  --bg-primary: #0B0F19;
+  --bg-secondary: #111827;
+  --text-primary: #F8FAFC;
+  --text-secondary: #E2E8F0;
+  --text-light: #94A3B8;
+  --blob-1: rgba(217, 27, 92, 0.2);
+  --blob-2: rgba(247, 168, 27, 0.2);
+  --blob-3: rgba(0, 93, 170, 0.2);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 0;
   color: var(--text-primary);
+  font-weight: 700;
 }
 
 section {
-  padding: 60px 10vw;
+  padding: 80px 5vw;
+  position: relative;
 }
 
-h1,
-h2,
-h3 {
-  margin-bottom: 20px;
-}
-
+/* Base Card Style */
 .card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  padding: 25px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.45);
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
 }
 
+/* Pro Button Styling */
 .btn {
-  padding: 14px 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
   font-weight: 600;
-  border-radius: 25px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 50px;
+  background: var(--accent-pink);
   color: white;
-  background: linear-gradient(to right, var(--accent-left), var(--accent-right));
   border: none;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 15px rgba(192, 31, 92, 0.3);
 }
 
 .btn:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  background: var(--accent-light);
+  box-shadow: 0 8px 25px rgba(192, 31, 92, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent-pink);
+  border: 2px solid var(--accent-pink);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: var(--accent-pink);
+  color: white;
+}
+
+/* Generic Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Background Blobs Setup */
+.blob-bg {
+  position: absolute;
+  filter: blur(80px);
+  z-index: -1;
+  border-radius: 50%;
 }
