@@ -22,7 +22,7 @@ import Achievements from "../components/Achievements";
 export default function Home() {
   const navigate = useNavigate();
 
-  // Floating particles mapped to RVCE's scattered dots
+  // Floating particles mapped to BIT's scattered dots
   const particles = [
     { color: "#22c55e", top: "10%", left: "20%", size: "8px" },
     { color: "#e91e63", top: "25%", right: "15%", size: "12px" },
@@ -52,7 +52,7 @@ export default function Home() {
 
   return (
     <>
-      {/* 1. RVCE-STYLE HERO SECTION */}
+      {/* 1. BIT-STYLE HERO SECTION */}
       <section style={{
         position: "relative",
         minHeight: "100vh",
@@ -171,7 +171,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 2. ABOUT US (RVCE STYLE Text Block) */}
+      {/* 2. ABOUT US (BIT STYLE Text Block) */}
       <section style={{ maxWidth: "1200px", margin: "0 auto", padding: "80px 5vw 40px" }}>
         <h2 style={{ fontSize: "2rem", color: "var(--text-primary)", marginBottom: "30px", textTransform: "uppercase" }}>
           Rotaract Club of BIT

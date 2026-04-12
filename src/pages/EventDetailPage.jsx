@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowLeft, Calendar, MapPin, Clock, Users, ArrowRight, Share2, Heart, ShieldQuestion, Star } from 'lucide-react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, Calendar, MapPin, Clock, Users, ArrowRight, Share2, Heart, ShieldQuestion, Star, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { eventsData } from '../data/eventsData';
 
-const FALLBACK_IMAGES = [
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1523580494112-071d16944140?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1528605105345-5344ea20e269?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1558008258-3256797b401e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-];
+
 
 export default function EventDetailPage() {
   const { eventId } = useParams();
@@ -19,6 +12,8 @@ export default function EventDetailPage() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const event = eventsData.find(e => e.id === eventId);
 
@@ -36,8 +31,10 @@ export default function EventDetailPage() {
   }
 
   // Derive extra details
-  const displayImage = event.image && event.image.includes("placeholder") ? FALLBACK_IMAGES[0] : (event.image || FALLBACK_IMAGES[0]);
-  const galleryImages = [displayImage, ...FALLBACK_IMAGES.slice(1, 6)]; // Total 6 images
+  const displayImage = event.image || "";
+  const galleryImages = event.images && event.images.length > 0 
+    ? event.images 
+    : (event.image ? [event.image] : []);
   
   // Staggered animation variant
   const containerVariants = {
@@ -56,6 +53,42 @@ export default function EventDetailPage() {
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh", position: "relative" }}>
       
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div 
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            style={{
+              position: 'fixed', inset: 0, zIndex: 99999, background: 'rgba(0,0,0,0.95)',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
+            }}
+          >
+            {/* Close Button */}
+            <button onClick={() => setLightboxIndex(null)} style={{ position: 'absolute', top: '30px', right: '30px', background: 'rgba(255,255,255,0.1)', color: 'white', border: 'none', borderRadius: '50%', width: '54px', height: '54px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(217, 27, 92, 0.8)'; e.currentTarget.style.transform = 'scale(1.1)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.transform = 'scale(1)'; }}>
+              <X size={24} />
+            </button>
+
+            {/* Previous Button */}
+            <button onClick={(e) => { e.stopPropagation(); setLightboxIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1)); }} style={{ position: 'absolute', left: '30px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', color: 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.transform = 'translateY(-50%) scale(1)'; }}>
+              <ChevronLeft size={36} />
+            </button>
+
+            {/* Next Button */}
+            <button onClick={(e) => { e.stopPropagation(); setLightboxIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0)); }} style={{ position: 'absolute', right: '30px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', color: 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.transform = 'translateY(-50%) scale(1)'; }}>
+              <ChevronRight size={36} />
+            </button>
+
+            {/* Image */}
+            <motion.img key={lightboxIndex} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3 }} src={galleryImages[lightboxIndex]} alt={`Enlarged view ${lightboxIndex + 1}`} style={{ maxWidth: '85vw', maxHeight: '85vh', objectFit: 'contain', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', borderRadius: '12px' }} />
+
+            {/* Pagination Counter */}
+            <div style={{ position: 'absolute', bottom: '30px', color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', fontWeight: '500', letterSpacing: '1px' }}>
+              {lightboxIndex + 1} / {galleryImages.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Dynamic Navbar replacement for back button */}
       <motion.div 
         initial={{ y: -50, opacity: 0 }} 
@@ -138,9 +171,9 @@ export default function EventDetailPage() {
         </motion.div>
 
         {/* Detailed Layout */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr lg:1fr', gap: '60px' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           
-          <div style={{ flex: '1 1 60%' }}>
+          <div style={{ width: '100%' }}>
             {/* About Section */}
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} style={{ marginBottom: '60px' }}>
               <h2 style={{ fontSize: '2rem', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
@@ -149,56 +182,74 @@ export default function EventDetailPage() {
               <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.9', marginBottom: '20px' }}>
                 {event.longDescription || "Join us for an incredible experience that brings together passionate individuals from across the community. This event is designed to foster growth, networking, and impactful actions!"}
               </p>
-              <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.9' }}>
-                Beyond the core agenda, attendees will have the opportunity to engage in interactive workshops, panel discussions, and hands-on activities that leave a lasting impact. Whether you are a seasoned member or joining us for the first time, this event promises value, learning, and fellowship.
-              </p>
             </motion.div>
+
+            {/* Impact Section */}
+            {event.impact && event.impact.length > 0 && (
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} style={{ marginBottom: '60px' }}>
+                <h2 style={{ fontSize: '2rem', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <Star size={28} color="var(--accent-pink)" /> Our Impact
+                </h2>
+                <ul style={{ fontSize: '1.15rem', color: 'var(--text-primary)', lineHeight: '1.9', listStyleType: 'disc', paddingLeft: '20px' }}>
+                  {event.impact.map((point, index) => (
+                    <li key={index} style={{ marginBottom: '10px' }}>{point}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
 
             {/* Agenda/Schedule Section Placeholder */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} style={{ marginBottom: '60px' }}>
-              <h2 style={{ fontSize: '2rem', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
-                <Clock size={28} color="var(--accent-pink)" /> Event Schedule
-              </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                {[
-                  { time: '09:00 AM', title: 'Registration & Welcome Kit Distribution' },
-                  { time: '10:00 AM', title: 'Inaugural Ceremony & Keynote Address' },
-                  { time: '12:00 PM', title: 'Interactive Sessions & Workshops' },
-                  { time: '01:30 PM', title: 'Networking Lunch' },
-                  { time: '02:30 PM', title: 'Group Activities & Implementations' },
-                  { time: '04:00 PM', title: 'Closing Ceremony & Vote of Thanks' }
-                ].map((item, i) => (
-                  <div key={i} style={{ 
-                    display: 'flex', gap: '20px', padding: '20px', background: 'var(--bg-secondary)', 
-                    borderRadius: '16px', borderLeft: '4px solid var(--accent-pink)', boxShadow: '0 4px 15px rgba(0,0,0,0.03)'
-                  }}>
-                    <div style={{ fontWeight: '700', color: 'var(--accent-pink)', minWidth: '85px' }}>{item.time}</div>
-                    <div style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{item.title}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            {event.schedule && event.schedule.length > 0 && (
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} style={{ marginBottom: '60px' }}>
+                <h2 style={{ fontSize: '2rem', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <Clock size={28} color="var(--accent-pink)" /> Event Schedule
+                </h2>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                  {event.schedule.map((item, i) => (
+                    <div key={i} style={{ 
+                      display: 'flex', gap: '20px', padding: '20px', background: 'var(--bg-secondary)', 
+                      borderRadius: '16px', borderLeft: '4px solid var(--accent-pink)', boxShadow: '0 4px 15px rgba(0,0,0,0.03)'
+                    }}>
+                      <div style={{ fontWeight: '700', color: 'var(--accent-pink)', minWidth: '85px' }}>{item.time}</div>
+                      <div style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{item.title}</div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
 
             {/* Event Gallery */}
+            {galleryImages.length > 0 && (
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }}>
               <h2 style={{ fontSize: '2rem', marginBottom: '25px' }}>Event Gallery</h2>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridAutoRows: '200px', gap: '15px' }}>
                 {galleryImages.map((img, i) => {
-                  // Masonry style dynamic spanning
-                  const spans = [
-                    { gridColumn: 'span 8', gridRow: 'span 2' }, // Large main image
-                    { gridColumn: 'span 4', gridRow: 'span 1' }, // Small side
-                    { gridColumn: 'span 4', gridRow: 'span 1' }, // Small side
-                    { gridColumn: 'span 4', gridRow: 'span 1' }, // Bottom small
-                    { gridColumn: 'span 4', gridRow: 'span 1' }, // Bottom small
-                    { gridColumn: 'span 4', gridRow: 'span 1' }, // Bottom small
-                  ];
+                  let styleSpan = { gridColumn: 'span 4', gridRow: 'span 1' };
+                  if (galleryImages.length === 1) {
+                    styleSpan = { gridColumn: 'span 12', gridRow: 'span 2' };
+                  } else if (galleryImages.length === 2) {
+                    styleSpan = i === 0 ? { gridColumn: 'span 8', gridRow: 'span 2' } : { gridColumn: 'span 4', gridRow: 'span 2' };
+                  } else if (galleryImages.length === 3) {
+                    styleSpan = i === 0 ? { gridColumn: 'span 8', gridRow: 'span 2' } : { gridColumn: 'span 4', gridRow: 'span 1' };
+                  } else {
+                    const spans = [
+                      { gridColumn: 'span 8', gridRow: 'span 2' },
+                      { gridColumn: 'span 4', gridRow: 'span 1' },
+                      { gridColumn: 'span 4', gridRow: 'span 1' },
+                      { gridColumn: 'span 4', gridRow: 'span 1' },
+                      { gridColumn: 'span 4', gridRow: 'span 1' },
+                      { gridColumn: 'span 4', gridRow: 'span 1' },
+                    ];
+                    styleSpan = spans[i] || { gridColumn: 'span 4', gridRow: 'span 1' };
+                  }
+
                   return (
                     <motion.div 
                       key={i} 
                       whileHover={{ scale: 0.98, filter: 'brightness(1.1)' }}
+                      onClick={() => setLightboxIndex(i)}
                       style={{ 
-                        ...spans[i], borderRadius: '20px', overflow: 'hidden', 
+                        ...styleSpan, borderRadius: '20px', overflow: 'hidden', 
                         boxShadow: '0 10px 30px rgba(0,0,0,0.1)', cursor: 'pointer' 
                       }}
                     >
@@ -208,84 +259,9 @@ export default function EventDetailPage() {
                 })}
               </div>
             </motion.div>
+            )}
 
           </div>
-          
-          {/* Sticky Sidebar */}
-          <div style={{ flex: '1 1 35%' }}>
-            <div style={{ position: 'sticky', top: '100px', display: 'flex', flexDirection: 'column', gap: '30px' }}>
-              
-              {/* Registration / Action Card */}
-              <motion.div 
-                initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}
-                style={{ 
-                  background: 'var(--bg-secondary)', padding: '40px', borderRadius: '30px', 
-                  boxShadow: '0 25px 50px rgba(0,0,0,0.08)', border: '1px solid rgba(0,0,0,0.03)',
-                  textAlign: 'center'
-                }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-                  <span style={{ 
-                    background: 'rgba(30, 184, 166, 0.1)', color: '#1EB8A6', padding: '8px 20px', 
-                    borderRadius: '30px', fontWeight: '700', fontSize: '0.9rem' 
-                  }}>
-                    {event.status === "Upcoming" ? "Registration Open" : "Event Concluded"}
-                  </span>
-                </div>
-                
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Join the Action!</h3>
-                <p style={{ color: 'var(--text-secondary)', marginBottom: '30px', lineHeight: '1.6' }}>
-                  Don't miss out on this incredible opportunity. Secure your spot now and be part of the change.
-                </p>
-                
-                <button className="btn" style={{ width: '100%', padding: '16px', fontSize: '1.1rem', marginBottom: '15px' }} disabled={event.status === "Completed"}>
-                  {event.status === "Upcoming" ? "Register Now" : "View Post-Event Report"}
-                </button>
-                
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
-                  <button style={{ 
-                    display: 'flex', alignItems: 'center', gap: '8px', background: 'transparent', 
-                    border: '1px solid rgba(0,0,0,0.1)', padding: '10px 20px', borderRadius: '50px',
-                    fontWeight: '600', color: 'var(--text-primary)', cursor: 'pointer', flex: 1, justifyContent: 'center'
-                  }}>
-                    <Share2 size={16} /> Share
-                  </button>
-                  <button style={{ 
-                    display: 'flex', alignItems: 'center', gap: '8px', background: 'transparent', 
-                    border: '1px solid rgba(0,0,0,0.1)', padding: '10px 20px', borderRadius: '50px',
-                    fontWeight: '600', color: 'var(--text-primary)', cursor: 'pointer', flex: 1, justifyContent: 'center'
-                  }}>
-                    <Heart size={16} /> Save
-                  </button>
-                </div>
-              </motion.div>
-
-              {/* Coordinator Card */}
-              <motion.div 
-                initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}
-                style={{ 
-                  background: 'var(--bg-secondary)', padding: '30px', borderRadius: '30px', 
-                  boxShadow: '0 15px 30px rgba(0,0,0,0.05)', border: '1px solid rgba(0,0,0,0.03)'
-                }}
-              >
-                <h4 style={{ fontSize: '1.2rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <ShieldQuestion size={20} color="var(--accent-pink)" /> Have questions?
-                </h4>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                  <img src="https://i.pravatar.cc/150?img=11" alt="Coordinator" style={{ width: '60px', height: '60px', borderRadius: '50%', objectFit: 'cover' }} />
-                  <div>
-                    <h5 style={{ margin: '0 0 5px', fontSize: '1.1rem' }}>John Doe</h5>
-                    <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Event Chairperson</p>
-                    <a href="mailto:contact@rotaract.org" style={{ color: 'var(--accent-pink)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '600', display: 'inline-block', marginTop: '5px' }}>
-                      Contact Organizer →
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-
-            </div>
-          </div>
-
         </div>
       </div>
     </div>

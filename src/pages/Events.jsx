@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, MapPin, ArrowRight, Search, Image as ImageIcon } from "lucide-react";
 import { eventsData } from "../data/eventsData";
 
-const CATEGORIES = ["All", "Activity", "Meeting", "Installation", "Project", "Participatory"];
+const CATEGORIES = ["All", "Activity", "Meeting", "Orientation", "Installation", "Project", "DOV"];
 
 const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
 
