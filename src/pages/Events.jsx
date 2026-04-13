@@ -4,7 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, MapPin, ArrowRight, Search, Image as ImageIcon } from "lucide-react";
 import { eventsData } from "../data/eventsData";
 
-const CATEGORIES = ["All", "Activity", "Meeting", "Orientation", "Installation", "Project", "DOV"];
+const CATEGORIES = [
+  { label: "All Updates", value: "All" },
+  { label: "Activities", value: "Activity" },
+  { label: "Meetings", value: "Meeting" },
+  { label: "Installations", value: "Installation" },
+  { label: "Projects", value: "Project" }
+];
 
 const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
 
@@ -57,7 +63,7 @@ export default function Events() {
   const displayedEvents = filteredEvents.slice(0, visibleCount);
 
   return (
-    <section style={{ minHeight: "100vh", position: "relative" }}>
+    <section style={{ minHeight: "100vh", position: "relative", paddingTop: "120px" }}>
       {/* Header */}
       <div className="section-header" style={{ marginBottom: "40px" }}>
         <motion.h2
@@ -81,20 +87,20 @@ export default function Events() {
       }}>
         {CATEGORIES.map(cat => (
           <button
-            key={cat}
-            onClick={() => { setActiveTab(cat); setVisibleCount(6); }}
+            key={cat.value}
+            onClick={() => { setActiveTab(cat.value); setVisibleCount(6); }}
             style={{
               padding: "10px 24px",
               borderRadius: "50px",
-              border: `2px solid ${activeTab === cat ? "var(--accent-pink)" : "rgba(0,0,0,0.1)"}`,
-              background: activeTab === cat ? "var(--accent-pink)" : "transparent",
-              color: activeTab === cat ? "white" : "var(--text-secondary)",
+              border: `2px solid ${activeTab === cat.value ? "var(--accent-pink)" : "rgba(0,0,0,0.1)"}`,
+              background: activeTab === cat.value ? "var(--accent-pink)" : "transparent",
+              color: activeTab === cat.value ? "white" : "var(--text-secondary)",
               fontWeight: "600",
               cursor: "pointer",
               transition: "all 0.3s ease",
             }}
           >
-            {cat === "All" ? "All Updates" : cat + "s"}
+            {cat.label}
           </button>
         ))}
       </div>

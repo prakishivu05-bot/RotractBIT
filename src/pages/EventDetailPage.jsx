@@ -113,11 +113,11 @@ export default function EventDetailPage() {
       </motion.div>
 
       {/* Hero Section */}
-      <div style={{ position: 'relative', height: '70vh', width: '100%', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', minHeight: '80vh', width: '100%', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}>
         <motion.div style={{ width: '100%', height: '120%', y: y1, backgroundImage: `url(${displayImage})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'absolute', top: '-10%', left: 0 }} />
         <motion.div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,15,30,0.95))', opacity }} />
         
-        <div style={{ position: 'absolute', bottom: '0', left: '0', width: '100%', padding: '5vw', color: 'white', zIndex: 10 }}>
+        <div style={{ position: 'relative', width: '100%', padding: '130px 5vw 5vw', color: 'white', zIndex: 10 }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
             <span style={{ 
               background: 'var(--accent-pink)', padding: '6px 16px', borderRadius: '30px', 

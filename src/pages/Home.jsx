@@ -115,7 +115,7 @@ export default function Home() {
               marginBottom: "35px", 
               fontWeight: "500"
             }}>
-              Unite for Good
+              Empowering the Youth, Transforming the Future.
             </p>
             <div style={{ display: "flex", gap: "20px", alignItems: "center", width: "100%" }}>
               <button onClick={() => navigate("/about")} className="btn" style={{ padding: "15px 35px", fontSize: "0.95rem" }}>
@@ -248,7 +248,8 @@ export default function Home() {
                   
                   <motion.h3 
                     layout="position"
-                    className="text-xl md:text-3xl font-black text-white font-['Montserrat'] tracking-tight mb-1 uppercase"
+                    className="text-xl md:text-3xl font-black font-['Montserrat'] tracking-tight mb-1 uppercase"
+                    style={{ color: "#ffffff", textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}
                   >
                     {service.title}
                   </motion.h3>

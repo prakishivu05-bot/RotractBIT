@@ -7,7 +7,7 @@ import "./nav.css";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
   const location = useLocation();
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="nav-logo">
           <img
-            src="/images/logo.jpg"
+            src="/images/Logo_new.jpeg"
             alt="Rotaract BIT Logo"
           />
         </Link>

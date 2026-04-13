@@ -6,11 +6,20 @@ export default function Gallery() {
   const scrollRef = useRef(null);
 
   const images = [
-    "/images/Gallery1.jpeg",
-    "/images/Gallery2.jpeg",
+    "/images/Gallery17.jpeg",
     "/images/Gallery3.jpeg",
-    "/images/Gallery1.jpeg", // duplicate for scrolling length
-    "/images/Gallery2.jpeg"
+    "/images/Gallery4.jpeg", // duplicate for scrolling length
+    "/images/Gallery6.jpeg",
+    "/images/Gallery7.jpeg",
+    "/images/Gallery2.jpeg",
+    "/images/Gallery9.png", 
+    "/images/Gallery1.jpeg",
+    "/images/Gallery11.png",
+    "/images/Gallery12.png",
+    "/images/Gallery5.jpeg", 
+    "/images/Gallery15.png",
+    "/images/Gallery16.jpeg"
+    
   ];
 
   const scrollLeft = () => {

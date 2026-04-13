@@ -116,6 +116,11 @@ export const eventsData = [
       "/images/Install3.JPG",
       "/images/Install4.JPG",
       "/images/Install5.JPG",
+      "/images/Install6.jpeg",
+      "/images/Install7.jpeg",
+      "/images/Install8.jpeg",
+      "/images/Install9.jpeg",
+      "/images/Install10.jpeg"
 
     ],
     image: "/images/Udbhav1.JPG",
@@ -301,18 +306,21 @@ export const eventsData = [
     category: "Activity",
     date: new Date("2025-12-20"),
     location: "Online Gmeet",
-    description: "An awareness initiative focusing on social responsibility and education.",
-    longDescription: "This initiative aimed to spread awareness on important social issues through digital sessions and discussions. It encouraged members to engage in meaningful conversations and take action.",
+    description: "An intellectually enriching literary initiative encouraging participants to explore literature as a tool for personal and intellectual growth.",
+    longDescription: "The Rotaract Club of Bangalore Institute of Technology (RID-3191) had the privilege of participating in Session-3 of \"தாழ் வழி தகவல் – Read | Reflect | Rise\", an intellectually enriching literary initiative hosted by the Rotaract Club of Anand Institute of Higher Technology, sponsored by the Rotary Club of Chennai Silk City (RID-3233). The session stood as a meaningful confluence of ideas, creativity, and reflective learning, encouraging participants to explore literature as a tool for personal and intellectual growth. The session featured an engaging discussion on The Book Thief by Markus Zusak... Members actively shared insights on the themes of courage, loss, and the quiet strength of observation portrayed in the book.",
     impact: [
-      "Raised awareness",
-      "Encouraged participation",
-      "Promoted social responsibility"
+      "Raised literary awareness",
+      "Encouraged participation and reflective learning",
+      "Promoted intellectual growth"
     ],
     schedule: [],
     images: [
-      "/images/Gallery6.jpeg"
+      "/images/Thazh1.jpeg",
+      "/images/Thazh2.jpeg",
+      "/images/Thazh3.jpeg",
+      "/images/Thazh4.jpeg"
     ],
-    image: "/images/Gallery6.jpeg",
+    image: "/images/Thazh1.jpeg",
     monthYear: "December 2025"
   },
   {
@@ -436,5 +444,296 @@ export const eventsData = [
     ],
     image: "/images/Core_Subcore_intra.jpg",
     monthYear: "July 2025"
+  },
+  {
+    id: "act-8",
+    title: "Party in Pink 4.0",
+    category: "Activity",
+    date: new Date("2025-12-14"),
+    location: "SSMRV College",
+    description: "A vibrant Zumba-based fitness initiative aimed at spreading awareness about breast cancer.",
+    longDescription: "Party in Pink 4.0 is a vibrant Zumba-based fitness initiative aimed at spreading awareness about breast cancer and promoting the importance of early detection and healthy living. Organized by the Rotaract Clubs of Bangalore JP Nagar and S.S.M.R.V College under Rotaract District 3191, the event brings together energy, movement, and purpose.",
+    impact: [
+      "Spread breast cancer awareness",
+      "Promoted healthy living",
+      "Encouraged community movement"
+    ],
+    schedule: [],
+    images: [
+      "/images/Party_in_pink1.jpeg",
+      "/images/Party_in_pink2.jpeg",
+      "/images/Party_in_pink3.jpeg",
+      "/images/Party_in_pink4.jpeg"
+    ],
+    image: "/images/Party_in_pink1.jpeg",
+    monthYear: "December 2025"
+  },
+  {
+    id: "act-9",
+    title: "Nodi Namma Ooru - Welcoming guests for Incoming RIDE 2.0",
+    category: "Activity",
+    date: new Date("2025-11-01"),
+    location: "Bengaluru, Karnataka",
+    description: "Welcoming guests from Rotaract District 3142, 3056 and 3040 and giving them a tour around Bengaluru.",
+    longDescription: "All the guests from Rotaract District 3142, 3056 and 3040 were welcomed and treated warmly by the club members. They gave the guests a tour around great places to visit in Bengaluru, following a hearty meal with them during lunch.",
+    impact: [
+      "Promoted cultural exchange",
+      "Strengthened inter-district relations",
+      "Showcased local heritage"
+    ],
+    schedule: [],
+    images: [
+      "/images/Namma_ooru1.jpg",
+      "/images/Namma_ooru2.jpg"
+    ],
+    image: "/images/Namma_ooru1.jpg",
+    monthYear: "November 2025"
+  },
+  {
+    id: "proj-5",
+    title: "Amazon Grain Packing Drive",
+    category: "Project",
+    date: new Date("2025-11-25"),
+    location: "Amazon Development Center, Aquila",
+    description: "A meaningful Grain Packing Community Service Initiative in collaboration with Amazon.",
+    longDescription: "The Rotaract Club of Bangalore Institute of Technology took part in a meaningful Grain Packing Community Service Initiative in collaboration with Amazon on 25th November. The activity focused on preparing and packing essential grains that would later be distributed to underprivileged communities. Rotaract volunteers worked together to sort, measure, and pack grain kits, contributing their time and effort toward a cause that directly impacts those in need. The initiative strengthened the spirit of service, teamwork, and compassion among members while creating a positive social impact.",
+    impact: [
+      "Packed essential grains for the underprivileged",
+      "Fostered teamwork and compassion",
+      "Directly impacted those in need"
+    ],
+    schedule: [],
+    images: [
+      "/images/Amazon1.jpg",
+      "/images/Amazon2.jpg"
+    ],
+    image: "/images/Amazon1.jpg",
+    monthYear: "November 2025"
+  },
+  {
+    id: "proj-6",
+    title: "Children's day Donation drive and fun interaction",
+    category: "Project",
+    date: new Date("2025-11-08"),
+    location: "Loving hearts foundation, Neelsandra",
+    description: "A heartwarming Children's Day Donation Drive and Fun Interaction to bring joy to underprivileged children.",
+    longDescription: "The Rotaract Club of Bangalore Institute of Technology, in collaboration with the Rotaract Club of Bangalore Aagneya, organized a heartwarming Children's Day Donation Drive and Fun Interaction on 8th November at the Loving Hearts Foundation, Neelsandra. The event aimed to bring joy, support, and meaningful engagement to underprivileged children. Members from both clubs conducted an interactive fun session filled with conversations, games, and activities that helped build a warm connection with the kids. To make the occasion more special, each child was gifted: Snacks, Notebooks, A complete stationery set. The initiative not only celebrated Children's Day with love and compassion but also highlighted the importance of giving back to society. The combined efforts of both clubs ensured a memorable and impactful experience for the children at the foundation.",
+    impact: [
+      "Distributed snacks and stationery sets",
+      "Provided joyful engagement for children",
+      "Emphasized giving back to society"
+    ],
+    schedule: [],
+    images: [
+      "/images/Childrens_day1.jpg",
+      "/images/Childrens_day2.jpg",
+      "/images/Childrens_day3.jpg",
+      "/images/Childrens_day4.jpg",
+      "/images/Childrens_day5.jpg"
+    ],
+    image: "/images/Childrens_day1.jpg",
+    monthYear: "November 2025"
+  },
+  {
+    id: "act-10",
+    title: "Club Service - 2.0",
+    category: "Activity",
+    date: new Date("2025-11-22"),
+    location: "Jalandhar Street, Basavanagudi, Bangalore",
+    description: "An informal fellowship meet focused on building team bonding and discussing future planning.",
+    longDescription: "Club Service 2.0 was organized as an informal yet meaningful fellowship meet at Jalandhar Restaurant, bringing together the core and sub-core teams of the Rotaract Club of BIT for a refreshing and interactive Sunday brunch. The gathering created a warm and relaxed environment where members connected beyond their roles, strengthening mutual understanding and team spirit... Club Service 2.0 successfully fostered deeper bonding, improved communication, and strengthened the sense of unity within the team—setting the stage for coordinated and impactful activities in the months ahead.",
+    impact: [
+      "Fostered deeper bonding",
+      "Improved communication",
+      "Strengthened unity"
+    ],
+    schedule: [],
+    images: [
+      "/images/Club2_service1.jpg",
+      "/images/Club2_service2.jpg",
+      "/images/Club2_service3.jpg"
+    ],
+    image: "/images/Club2_service1.jpg",
+    monthYear: "November 2025"
+  },
+  {
+    id: "act-11",
+    title: "Open State Level Competition - Prize Distribution",
+    category: "Activity",
+    date: new Date("2025-11-30"),
+    location: "Shikshakara Sadhana",
+    description: "Celebrating the achievements of young participants in various intellectual competitions.",
+    longDescription: "Prize Distribution Ceremony - Open State Level Competition 2025 The Prize Distribution Ceremony of the Open State Level Competition - 2025, organized by Smart i Abacus in collaboration with the Rotaract Club of Bangalore Institute of Technology, was held on Sunday, 30th November 2025 at Shikshakara Sadhana, Majestic, Bengaluru. The ceremony celebrated the achievements of young participants who excelled in various competitions such as Abacus, Vedic Math, Rubik's Cube, Drawing, and Handwriting...",
+    impact: [
+      "Celebrated young talent",
+      "Promoted analytical skills",
+      "Successful collaboration"
+    ],
+    schedule: [],
+    images: [
+      "/images/Prize1.jpg",
+      "/images/Prize3.jpg",
+      "/images/Prize4.jpg",
+      "/images/Prize5.jpg"
+    ],
+    image: "/images/Prize1.jpg",
+    monthYear: "November 2025"
+  },
+  {
+    id: "act-12",
+    title: "Open State Level Competition",
+    category: "Activity",
+    date: new Date("2025-11-16"),
+    location: "Bangalore Institute of Technology",
+    description: "Preliminary phase of a state-level intellectually engaging competition for talented students.",
+    longDescription: "The Rotaract Club of Bangalore Institute of Technology (RCBIT) assisted Smart I Abacus to conduct the Open State Level Competition - 2025 (Prelims) on Sunday, 16th November 2025, from 10:00 AM to 2:00 PM at Bangalore Institute of Technology. The event brought together talented students from across the state to participate in a wide range of intellectually engaging competitions, including: Abacus Competition, Vedic Mathematics, Rubik's Cube Solving, Handwriting Competition, Drawing & Art Competition... A dedicated team of Rotaract volunteers ensured smooth coordination, registration support, judging assistance, and discipline management throughout the event.",
+    impact: [
+      "Promoted analytical skills",
+      "Identified young talents",
+      "Ensured smooth event management"
+    ],
+    schedule: [],
+    images: [
+      "/images/State_level1.jpg",
+      "/images/State_level2.jpg",
+      "/images/State_level3.jpg",
+      "/images/State_level4.jpg"
+    ],
+    image: "/images/State_level1.jpg",
+    monthYear: "November 2025"
+  },
+  {
+    id: "act-13",
+    title: "Nada Habba 2025",
+    category: "Activity",
+    date: new Date("2025-11-02"),
+    location: "Janapada Loka, Ramanagara",
+    description: "Celebrating Kannada Rajyotsava - honoring the cultural identity, linguistic pride, and rich heritage of Karnataka.",
+    longDescription: "The Rotaract District Organization 3191 proudly celebrated Kannada Rajyotsava - ನಾಡ ಹಬ್ಬ 2025, an event dedicated to honoring the cultural identity, linguistic pride, and rich heritage of Karnataka... Held on 2nd November 2025 at the culturally significant Janapada Loka, Ramanagara, the event created an immersive atmosphere filled with Karnataka's essence—its art, music, dance, and stories.",
+    impact: [
+      "Honored cultural identity",
+      "Celebrated linguistic pride",
+      "Promoted local heritage"
+    ],
+    schedule: [],
+    images: [
+      "/images/Naada_Habba1.jpg"
+    ],
+    image: "/images/Naada_Habba1.jpg",
+    monthYear: "November 2025"
+  },
+  {
+    id: "act-14",
+    title: "Innocence to Impact",
+    category: "Activity",
+    date: new Date("2025-11-20"),
+    location: "Online",
+    description: "A digital collaboration for World Children's Day featuring a 'Then & Now' themed reel.",
+    longDescription: "On the occasion of World Children’s Day (20th November), the Rotaract Club of Bangalore Institute of Technology and the Rotaract Club of SIES (Nerul) College came together for a creative and heartwarming digital collaboration. For this collaboration, members from both clubs contributed to a special \"Then & Now\" themed reel by sharing: One childhood photo, and One current photo, showcasing their journey over the years. From each club, 10 members were featured... The final reel was posted on 20th November, spreading smiles, warmth, and a sense of unity across both Rotaract communities.",
+    impact: [
+      "Celebrated children's day creatively",
+      "Fostered inter-club unity",
+      "Spread joy digitally"
+    ],
+    schedule: [],
+    images: [
+      "/images/Impact1.jpg",
+      "/images/Impact2.jpg",
+      "/images/Imapct3.jpg",
+      "/images/Impact4.jpg",
+      "/images/Impact5.jpg"
+    ],
+    image: "/images/Impact1.jpg",
+    monthYear: "November 2025"
+  },
+  {
+    id: "act-15",
+    title: "Club Service - 1.0",
+    category: "Activity",
+    date: new Date("2025-10-23"),
+    location: "Polar Bear - V. V Puram",
+    description: "Encouraging fellowship and strong bonding between core and sub-core members through interactive discussions.",
+    longDescription: "Encouraging fellowship and strong bonding between core and sub-core members through interactive discussions on plans, roles, and responsibilities for the 2nd quarter, aiming to enhance collaboration, coordination, and effective teamwork for the successful execution of upcoming events.",
+    impact: [
+      "Enhanced team collaboration",
+      "Clarified upcoming roles",
+      "Fostered fellowship"
+    ],
+    schedule: [],
+    images: [
+      "/images/Club1_service1.jpg",
+      "/images/Club1_service2.jpg",
+      "/images/Club1_service3.jpg",
+      "/images/Club1_service4.jpg"
+    ],
+    image: "/images/Club1_service1.jpg",
+    monthYear: "October 2025"
+  },
+  {
+    id: "proj-7",
+    title: "Knowledge Kits",
+    category: "Project",
+    date: new Date("2025-09-09"),
+    location: "Devachikkanahalli Primary School, Bengaluru",
+    description: "A stationery drive benefiting over 275 students with school bags and basic learning tools.",
+    longDescription: "On 9th September 2025, the Rotaract Club of Bangalore Institute of Technology, in collaboration with the Rotaract Club of Bangalore Aagneya, conducted a Stationery Drive at Devachikkanahalli Primary School, Bengaluru, benefiting over 275 students. Around 100-110 school bags with stationery kits were distributed — crayons, drawing books, pencils, erasers, sharpeners, and scales. The children's joy and excitement were heartwarming, reflecting the true impact of small acts of kindness. The initiative celebrated education, compassion, and hope, reminding us that giving young minds the right tools today empowers them to dream, learn, and create a brighter tomorrow.",
+    impact: [
+      "Supported 275+ students",
+      "Distributed ~110 stationery bags",
+      "Empowered young minds"
+    ],
+    schedule: [],
+    images: [
+      "/images/Knowlodge_kit1.png",
+      "/images/Knowledge_kit2.png",
+      "/images/Knowledge_kit3.png"
+    ],
+    image: "/images/Knowlodge_kit1.png",
+    monthYear: "September 2025"
+  },
+  {
+    id: "proj-8",
+    title: "Youth Wellness Drive - BIT 2025",
+    category: "Project",
+    date: new Date("2025-09-16"),
+    location: "Dr. S Ramegowda Seminar Hall",
+    description: "An awareness campaign focusing on women's mental and physical wellness and menstrual hygiene.",
+    longDescription: "The Rotaract Club of Bangalore Institute of Technology, in collaboration with The Right Side Story, organized the Youth Wellness Campaign – BIT 2025 on 16th September 2025 at Dr. S. Ramegowda Seminar Hall from 10:00 AM to 11:00 AM. The event aimed to raise awareness about women's mental and physical wellness, focusing on menstrual hygiene and encouraging a balanced lifestyle. Ms. Tanu Shree Jangir, a renowned Youth Well-being Expert, conducted engaging sessions on mental health, menstrual hygiene, and self-care, sharing practical insights with students. The event also included the distribution of free hygiene kits, comprising period panties, sanitary pads, and Venus razors, to promote menstrual health.",
+    impact: [
+      "Raised wellness awareness",
+      "Distributed free hygiene kits",
+      "Educated on menstrual health"
+    ],
+    schedule: [],
+    images: [
+      "/images/Youth_wellness1.jpg",
+      "/images/Youth_wellness2.jpg",
+      "/images/Youth_wellness3.jpg",
+      "/images/Youth_wellness4.jpg",
+      "/images/Youth_wellness5.jpg"
+    ],
+    image: "/images/Youth_wellness1.jpg",
+    monthYear: "September 2025"
+  },
+  {
+    id: "act-16",
+    title: "Utkarsha- District Learning and Assembly",
+    category: "Activity",
+    date: new Date("2025-08-31"),
+    location: "KLE Law College, bangalore",
+    description: "A flagship learning and networking event of Rotaract District 3191.",
+    longDescription: "A flagship learning and networking event of Rotaract District 3191. We, from Rotaract Club of BIT attended the inauguration events, listened to speeches by dignified Rotarians. We attended the training sessions for Club Service, Professional Service, PR Avenue, Vice President and Secretaries.",
+    impact: [
+      "Attended valuable training",
+      "Networked with district members",
+      "Gained avenue-specific knowledge"
+    ],
+    schedule: [],
+    images: [
+      "/images/Utkarsha1.jpg",
+      "/images/Utkarsha2.jpg"
+    ],
+    image: "/images/Utkarsha1.jpg",
+    monthYear: "August 2025"
   }
 ];

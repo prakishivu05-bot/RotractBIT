@@ -43,7 +43,7 @@ export default function SocialBar() {
 
             {/* LinkedIn */}
             <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/rotaractclubofbit/posts/?feedView=all"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ opacity: 0.9 }}
@@ -64,11 +64,10 @@ export default function SocialBar() {
                 </svg>
             </a>
 
-            {/* Facebook */}
+
+            {/* Email */}
             <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:bitrotract@gmail.com"
                 style={{ opacity: 0.9 }}
             >
                 <svg
@@ -78,14 +77,15 @@ export default function SocialBar() {
                     fill="white"
                     style={{
                         transition: "0.2s",
-                        filter: "drop-shadow(0 0 6px rgba(224,25,102,0.8))"
+                        filter: "drop-shadow(0 0 6px rgba(255,152,0,0.8))"
                     }}
                     onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
                     onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
                 >
-                    <path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.889h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
             </a>
+
         </div>
     );
 }

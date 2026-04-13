@@ -16,24 +16,26 @@ export default function Members() {
     { name: "Rtr.Kushal", designation: "Professional Service Director", logo_path: "/images/Kushal.png" },
     { name: "Rtr.Abdullah", designation: "International Service Director", logo_path: "/images/Abdullah.png" },
     { name: "Rtr.Medha Balaji", designation: "Club Service Director", logo_path: "/images/Medha.png" },
+    { name: "Rtr.Sudhanshu Kumar", designation: "Immediate Past President", logo_path: "/images/Sudhanshu.png" },
     { designation: "Community Service Director", name: "Rtr.Srujan", logo_path: "/images/Srujan.png" },
     { name: "Rtr.Shreya Srinivas", designation: "PR Director", logo_path: "/images/Shreya.png" },
     { name: "Rtr.Anirudh", designation: "Event Coordinator", logo_path: "/images/Anirudh.png" },
-    { name: "Rtr.Sudhanshu Kumar", designation: "Immediate Past President", logo_path: "/images/Sudhanshu.png" },
-    { designation: "Event Coordinator", name: "Rtr.Parinetha", logo_path: "/images/Parinetha.png" },
     { name: "Rtr.Sanjana R Rao", designation: "Event Coordinator", logo_path: "/images/Sanjana_Rao.png" },
+    { designation: "Event Coordinator", name: "Rtr.Parinetha", logo_path: "/images/Parinetha.png" },
+    { name: "Rtr.Varshita Buddula", designation: "Event Coordinator", logo_path: "/images/Varshita.png" },
     { name: "Rtr.Judah Samuel", designation: "Photography", logo_path: "/images/Judah.png" },
-    { designation: "Editorial", name: "Rtr.Khushi Nahata", logo_path: "/images/Khushi.png" },
+    { designation: "Editorial", name: "Rtr.Shihaz Arfath", logo_path: "/images/" },
     { name: "Rtr.Harshitha Jadhav", designation: "Graphic Designer", logo_path: "/images/Harshitha.png" },
     { designation: "Graphic Designer", name: "Rtr.Shreyas", logo_path: "/images/Shreyas.png" },
     { name: "Rtr.Rohith HM", designation: "Graphic Designer", logo_path: "/images/Rohit.png" },
+    { name: "Rtr.Aishwarya Darshini S", designation: "Graphic Designer", logo_path: "/images/Aishwarya.png" },
     { name: "Rtr.Manish", designation: "Marketing", logo_path: "/images/Manish.png" },
     { name: "Rtr.Prachi Rawat", designation: "Marketing", logo_path: "/images/Prachi.png" },
     { name: "Rtr.Raja", designation: "Creative", logo_path: "/images/Raja.png" },
     { name: "Rtr.Devika Sitalgeri", designation: "Creative", logo_path: "/images/Devika.png" },
     { name: "Rtr.Pragathi", designation: "Creative", logo_path: "/images/Pragathi.png" },
-    { designation: "Web Designer", name: "Rtr.Vignesh BS", logo_path: "/images/Vignesh.png" },
-    { name: "Rtr.Prakhyath S", designation: "Web Designer", logo_path: "/images/Prakhyath.png" },
+    { name: "Rtr.Vasundhara V", designation: "Creative", logo_path: "/images/Vasundhara.png" },
+    { name: "Rtr.Prakhyath S", designation: "Web Designer", logo_path: "/images/Prakhyath_s.png" },
   ];
 
   const containerVariants = {
@@ -61,19 +63,12 @@ export default function Members() {
       <div style={{ 
         display: "flex", 
         justifyContent: "center", 
-        gap: "60px", 
         borderBottom: "1px solid rgba(0,0,0,0.1)", 
         maxWidth: "1000px", 
         margin: "0 auto 60px",
         paddingTop: "20px"
       }}>
-        <div 
-          style={{ padding: "15px 10px", color: "var(--text-secondary)", fontWeight: "600", cursor: "pointer", fontSize: "1.05rem" }}
-          onClick={() => navigate("/about")}
-        >
-          About us
-        </div>
-        <div style={{ padding: "15px 10px", color: "var(--text-primary)", fontWeight: "700", borderBottom: "3px solid #d91b5c", cursor: "pointer", fontSize: "1.05rem" }}>
+        <div style={{ padding: "15px 30px", color: "var(--text-primary)", fontWeight: "700", borderBottom: "3px solid #d91b5c", fontSize: "1.25rem", textTransform: "uppercase" }}>
           Our Team
         </div>
       </div>
