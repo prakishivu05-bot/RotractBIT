@@ -18,10 +18,10 @@ export default function Events() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
-  const [dateFilter, setDateFilter] = useState("All"); // All, Upcoming, Past
+  const [dateFilter, setDateFilter] = useState("All"); 
   const [visibleCount, setVisibleCount] = useState(6);
 
-  // Derived Data
+  
   const filteredEvents = useMemo(() => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -33,7 +33,7 @@ export default function Events() {
       displayImage: e.image && e.image.includes("placeholder") ? FALLBACK_IMAGE : e.image || FALLBACK_IMAGE,
     }));
 
-    // Search filter
+    
     if (searchTerm) {
       const lowerSearch = searchTerm.toLowerCase();
       result = result.filter(
@@ -44,17 +44,17 @@ export default function Events() {
       );
     }
 
-    // Category filter
+    
     if (activeTab !== "All") {
       result = result.filter(e => e.category === activeTab);
     }
 
-    // Date filter
+    
     if (dateFilter !== "All") {
       result = result.filter(e => e.status === dateFilter);
     }
 
-    // Sort by Date
+    
     result.sort((a, b) => b.date - a.date);
 
     return result;
@@ -64,7 +64,7 @@ export default function Events() {
 
   return (
     <section style={{ minHeight: "100vh", position: "relative", paddingTop: "120px" }}>
-      {/* Header */}
+      
       <div className="section-header" style={{ marginBottom: "40px" }}>
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -81,7 +81,7 @@ export default function Events() {
         </motion.p>
       </div>
 
-      {/* Tabs */}
+      
       <div style={{
         display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginBottom: "30px"
       }}>
@@ -105,7 +105,7 @@ export default function Events() {
         ))}
       </div>
 
-      {/* Filters & Search */}
+      
       <div style={{
         display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "20px",
         maxWidth: "1200px", margin: "0 auto 40px auto", padding: "20px", background: "white",
@@ -145,7 +145,7 @@ export default function Events() {
         </div>
       </div>
 
-      {/* Grid */}
+      
       <div style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
@@ -173,7 +173,7 @@ export default function Events() {
               onClick={() => navigate(`/events/${event.id}`)}
               whileHover={{ y: -8, boxShadow: "0 25px 50px -12px rgba(192, 31, 92, 0.2)" }}
             >
-              {/* Category Badge */}
+              
               <div style={{
                 position: "absolute",
                 top: "15px",
@@ -192,7 +192,7 @@ export default function Events() {
                 {event.category}
               </div>
 
-              {/* Status Badge */}
+              
               <div style={{
                 position: "absolute",
                 top: "15px",
@@ -209,7 +209,7 @@ export default function Events() {
                 {event.status}
               </div>
 
-              {/* Image */}
+              
               <div style={{ height: "220px", overflow: "hidden" }}>
                 <motion.img
                   src={event.displayImage}
@@ -220,7 +220,7 @@ export default function Events() {
                 />
               </div>
 
-              {/* Content */}
+              
               <div style={{ padding: "25px", display: "flex", flexDirection: "column", flex: 1 }}>
                 <h3 style={{ fontSize: "1.35rem", marginBottom: "15px", color: "var(--text-primary)", lineHeight: "1.3" }}>
                   {event.title}

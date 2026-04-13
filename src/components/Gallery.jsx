@@ -8,7 +8,7 @@ export default function Gallery() {
   const images = [
     "/images/Gallery17.jpeg",
     "/images/Gallery3.jpeg",
-    "/images/Gallery4.jpeg", // duplicate for scrolling length
+    "/images/Gallery4.jpeg", 
     "/images/Gallery6.jpeg",
     "/images/Gallery7.jpeg",
     "/images/Gallery2.jpeg",
@@ -40,7 +40,7 @@ export default function Gallery() {
           display: "flex", 
           gap: "30px", 
           overflowX: "auto", 
-          scrollbarWidth: "none", // Firefox
+          scrollbarWidth: "none", 
           scrollSnapType: "x mandatory",
           paddingBottom: "20px"
         }}

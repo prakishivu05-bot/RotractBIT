@@ -39,7 +39,7 @@ export default function Achievements() {
           display: "inline-block",
           boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
         }}>
-          {/* Certificate Image Placeholder using generic web link if local not available, otherwise replacing with local image path assuming we have it */}
+          
           <img 
             src="/images/Awards.jpg"  
             alt="Certificate of Appreciation" 

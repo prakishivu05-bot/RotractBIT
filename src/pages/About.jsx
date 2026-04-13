@@ -6,7 +6,7 @@ export default function About() {
     <section style={{ paddingTop: "140px", paddingBottom: "100px", maxWidth: "1200px", margin: "0 auto", paddingLeft: "5vw", paddingRight: "5vw", minHeight: "100vh" }}>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "50px" }}>
         
-        {/* Left Hand Image */}
+        
         <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} style={{ flex: "1 1 400px", display: "flex", alignSelf: "stretch" }}>
           <img 
             src="/images/Club1_service3.jpg" 
@@ -15,7 +15,7 @@ export default function About() {
           />
         </motion.div>
 
-        {/* Right Hand Text */}
+        
         <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} style={{ flex: "1 1 500px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <h2 style={{ fontSize: "2.5rem", color: "var(--text-primary)", marginBottom: "30px", fontWeight: "800" }}>
             Know More About Us

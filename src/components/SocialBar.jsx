@@ -12,7 +12,7 @@ export default function SocialBar() {
                 zIndex: 9999
             }}
         >
-            {/* Instagram */}
+            
 <a
   href="https://www.instagram.com/rotaract.bit?igsh=MWhlaWFiem10NGxoeg=="
   target="_blank"
@@ -26,7 +26,7 @@ export default function SocialBar() {
     fill="white"
     style={{
       transition: "0.2s",
-      filter: "drop-shadow(0 0 6px rgba(225,48,108,0.8))", // Instagram glow
+      filter: "drop-shadow(0 0 6px rgba(225,48,108,0.8))", 
     }}
     onMouseOver={(e) =>
       (e.currentTarget.style.transform = "scale(1.2)")
@@ -41,7 +41,7 @@ export default function SocialBar() {
 
 
 
-            {/* LinkedIn */}
+            
             <a
                 href="https://www.linkedin.com/company/rotaractclubofbit/posts/?feedView=all"
                 target="_blank"
@@ -65,7 +65,7 @@ export default function SocialBar() {
             </a>
 
 
-            {/* Email */}
+            
             <a
                 href="mailto:bitrotract@gmail.com"
                 style={{ opacity: 0.9 }}

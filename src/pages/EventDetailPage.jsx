@@ -30,7 +30,7 @@ export default function EventDetailPage() {
     );
   }
 
-  // Derive extra details
+  
   const displayImage = event.image || "";
   const galleryImages = event.images && event.images.length > 0 
     ? event.images 
@@ -53,7 +53,7 @@ export default function EventDetailPage() {
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh", position: "relative" }}>
       
-      {/* Lightbox Modal */}
+      
       <AnimatePresence>
         {lightboxIndex !== null && (
           <motion.div 
@@ -63,25 +63,25 @@ export default function EventDetailPage() {
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
             }}
           >
-            {/* Close Button */}
+            
             <button onClick={() => setLightboxIndex(null)} style={{ position: 'absolute', top: '30px', right: '30px', background: 'rgba(255,255,255,0.1)', color: 'white', border: 'none', borderRadius: '50%', width: '54px', height: '54px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(217, 27, 92, 0.8)'; e.currentTarget.style.transform = 'scale(1.1)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.transform = 'scale(1)'; }}>
               <X size={24} />
             </button>
 
-            {/* Previous Button */}
+            
             <button onClick={(e) => { e.stopPropagation(); setLightboxIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1)); }} style={{ position: 'absolute', left: '30px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', color: 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.transform = 'translateY(-50%) scale(1)'; }}>
               <ChevronLeft size={36} />
             </button>
 
-            {/* Next Button */}
+            
             <button onClick={(e) => { e.stopPropagation(); setLightboxIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0)); }} style={{ position: 'absolute', right: '30px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', color: 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.transform = 'translateY(-50%) scale(1)'; }}>
               <ChevronRight size={36} />
             </button>
 
-            {/* Image */}
+            
             <motion.img key={lightboxIndex} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3 }} src={galleryImages[lightboxIndex]} alt={`Enlarged view ${lightboxIndex + 1}`} style={{ maxWidth: '85vw', maxHeight: '85vh', objectFit: 'contain', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', borderRadius: '12px' }} />
 
-            {/* Pagination Counter */}
+            
             <div style={{ position: 'absolute', bottom: '30px', color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', fontWeight: '500', letterSpacing: '1px' }}>
               {lightboxIndex + 1} / {galleryImages.length}
             </div>
@@ -89,7 +89,7 @@ export default function EventDetailPage() {
         )}
       </AnimatePresence>
 
-      {/* Dynamic Navbar replacement for back button */}
+      
       <motion.div 
         initial={{ y: -50, opacity: 0 }} 
         animate={{ y: 0, opacity: 1 }} 
@@ -112,7 +112,7 @@ export default function EventDetailPage() {
         </Link>
       </motion.div>
 
-      {/* Hero Section */}
+      
       <div style={{ position: 'relative', minHeight: '80vh', width: '100%', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}>
         <motion.div style={{ width: '100%', height: '120%', y: y1, backgroundImage: `url(${displayImage})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'absolute', top: '-10%', left: 0 }} />
         <motion.div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,15,30,0.95))', opacity }} />
@@ -136,10 +136,10 @@ export default function EventDetailPage() {
         </div>
       </div>
 
-      {/* Main Content Area */}
+      
       <div style={{ maxWidth: '1200px', margin: '-50px auto 0', padding: '0 5vw 100px', position: 'relative', zIndex: 20 }}>
         
-        {/* Info Cards Row */}
+        
         <motion.div 
           variants={containerVariants} initial="hidden" animate="show"
           style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '60px' }}
@@ -170,11 +170,11 @@ export default function EventDetailPage() {
           ))}
         </motion.div>
 
-        {/* Detailed Layout */}
+        
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           
           <div style={{ width: '100%' }}>
-            {/* About Section */}
+            
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} style={{ marginBottom: '60px' }}>
               <h2 style={{ fontSize: '2rem', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <Star size={28} color="var(--accent-pink)" /> About The Event
@@ -184,7 +184,7 @@ export default function EventDetailPage() {
               </p>
             </motion.div>
 
-            {/* Impact Section */}
+            
             {event.impact && event.impact.length > 0 && (
               <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} style={{ marginBottom: '60px' }}>
                 <h2 style={{ fontSize: '2rem', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
@@ -198,7 +198,7 @@ export default function EventDetailPage() {
               </motion.div>
             )}
 
-            {/* Agenda/Schedule Section Placeholder */}
+            
             {event.schedule && event.schedule.length > 0 && (
               <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} style={{ marginBottom: '60px' }}>
                 <h2 style={{ fontSize: '2rem', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
@@ -218,7 +218,7 @@ export default function EventDetailPage() {
               </motion.div>
             )}
 
-            {/* Event Gallery */}
+            
             {galleryImages.length > 0 && (
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }}>
               <h2 style={{ fontSize: '2rem', marginBottom: '25px' }}>Event Gallery</h2>

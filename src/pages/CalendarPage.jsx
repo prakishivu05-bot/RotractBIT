@@ -6,12 +6,12 @@ export default function CalendarPage() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Auto-Fetch events.json
+  
   useEffect(() => {
     fetch('/events.json')
       .then((res) => res.json())
       .then((data) => {
-        // Sort by date ascending
+        
         const sorted = data.sort((a, b) => new Date(a.date) - new Date(b.date));
         setEvents(sorted);
         setLoading(false);
@@ -31,7 +31,7 @@ export default function CalendarPage() {
     }
   };
 
-  // Helper to check if event is today
+  
   const isToday = (dateString) => {
     const today = new Date();
     const eventDate = new Date(dateString);
@@ -40,7 +40,7 @@ export default function CalendarPage() {
            eventDate.getFullYear() === today.getFullYear();
   };
 
-  // Generate "Next 7 Days" dates
+  
   const next7Days = Array.from({ length: 7 }).map((_, i) => {
     const d = new Date();
     d.setDate(d.getDate() + i);
@@ -64,7 +64,7 @@ export default function CalendarPage() {
           </p>
         </motion.div>
 
-        {/* Horizontal Scroller for Next 7 Days */}
+        
         <div className="mb-16 relative">
           <h2 className="text-xl font-bold font-['Montserrat'] mb-6 flex items-center gap-2">
             <CalendarIcon className="text-vibrant-pink" /> Next 7 Days
@@ -126,7 +126,7 @@ export default function CalendarPage() {
                 const today = isToday(event.date);
                 const hasPdf = event.sourceFile && event.sourceFile.toLowerCase().endsWith('.pdf');
                 
-                // Bento styles: make every 4th item span 2 columns or rows for dynamic look
+                
                 const isWide = index % 4 === 0 || index % 5 === 0;
 
                 return (
@@ -138,7 +138,7 @@ export default function CalendarPage() {
                     transition={{ delay: index * 0.1 }}
                     className={`group relative overflow-hidden bg-[var(--bg-secondary)] backdrop-blur-xl border border-[rgba(128,128,128,0.2)] p-8 rounded-[32px] shadow-sm hover:shadow-xl hover:border-[rgba(128,128,128,0.4)] transition-all duration-300 flex flex-col justify-between ${isWide && 'md:col-span-2'}`}
                   >
-                    {/* Decorative Blob */}
+                    
                     <div className="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-vibrant-pink/20 to-blue-500/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
 
                     <div className="relative z-10">

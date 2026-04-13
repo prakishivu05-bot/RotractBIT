@@ -5,7 +5,7 @@ export default function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Hide the splash screen after 2.5 seconds to show off the premium animation
+    
     const timer = setTimeout(() => {
       setIsVisible(false);
     }, 2500);
@@ -15,13 +15,13 @@ export default function SplashScreen() {
 
   const tagline = "Rotaract Club of Bangalore Institute Of Technology".split(" ");
 
-  // Generate deterministic randomized particles/bubbles memory-safely on load
+  
   const particles = useMemo(() => Array.from({ length: 25 }).map((_, i) => ({
     id: i,
-    size: Math.random() * 12 + 4, // 4px to 16px wide
-    left: `${Math.random() * 100}vw`, // Random X position
+    size: Math.random() * 12 + 4, 
+    left: `${Math.random() * 100}vw`, 
     delay: Math.random() * 1.5,
-    duration: Math.random() * 2 + 1.5, // 1.5s to 3.5s speed
+    duration: Math.random() * 2 + 1.5, 
     isPink: Math.random() > 0.5
   })), []);
 
@@ -51,7 +51,7 @@ export default function SplashScreen() {
             overflow: 'hidden'
           }}
         >
-          {/* Animated Ambient Background Glow */}
+          
           <motion.div
             animate={{ 
               scale: [1, 1.2, 1],
@@ -69,7 +69,7 @@ export default function SplashScreen() {
             }}
           />
 
-          {/* Floating Professional Particles / Bubbles */}
+          
           {particles.map((p) => (
             <motion.div
               key={p.id}
@@ -105,7 +105,7 @@ export default function SplashScreen() {
               zIndex: 10
             }}
           >
-            {/* 3D Appering Logo Container */}
+            
             <motion.div 
               style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
               initial={{ scale: 0, rotate: -90 }}
@@ -117,7 +117,7 @@ export default function SplashScreen() {
                 delay: 0.1 
               }}
             >
-              {/* Dynamic Scaling Rings */}
+              
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: [1, 1.6, 1], opacity: [0, 0.5, 0] }}
@@ -143,7 +143,7 @@ export default function SplashScreen() {
                 }}
               />
 
-              {/* Glowing Aura behind logo */}
+              
               <motion.div
                 animate={{ opacity: [0.4, 0.8, 0.4], scale: [0.9, 1.1, 0.9] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -157,7 +157,7 @@ export default function SplashScreen() {
                 }}
               />
 
-              {/* The new logo_ring.jpg */}
+              
               <motion.img
                 src="/images/logo_ring.jpg"
                 alt="Rotaract Ring"
@@ -176,7 +176,7 @@ export default function SplashScreen() {
               />
             </motion.div>
 
-            {/* Animated Staggered Tagline */}
+            
             <motion.div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <h2 
                 style={{
@@ -206,7 +206,7 @@ export default function SplashScreen() {
                 ))}
               </h2>
               
-              {/* Sleek Loading Bar */}
+              
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: "150px", opacity: 1 }}

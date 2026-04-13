@@ -22,7 +22,7 @@ import Achievements from "../components/Achievements";
 export default function Home() {
   const navigate = useNavigate();
 
-  // Floating particles mapped to BIT's scattered dots
+  
   const particles = [
     { color: "#22c55e", top: "10%", left: "20%", size: "8px" },
     { color: "#e91e63", top: "25%", right: "15%", size: "12px" },
@@ -52,7 +52,7 @@ export default function Home() {
 
   return (
     <>
-      {/* 1. BIT-STYLE HERO SECTION */}
+      
       <section style={{
         position: "relative",
         minHeight: "100vh",
@@ -65,7 +65,7 @@ export default function Home() {
         margin: "0 auto",
         overflow: "hidden"
       }}>
-        {/* Floating Particles */}
+        
         {particles.map((p, i) => (
           <motion.div
             key={i}
@@ -91,7 +91,7 @@ export default function Home() {
           />
         ))}
 
-        {/* Text Content */}
+        
         <motion.div 
           style={{ flex: "1 1 50%", maxWidth: "600px", zIndex: 2, display: "flex", flexDirection: "column", justifyContent: "center" }}
           initial={{ opacity: 0, x: -30 }}
@@ -142,7 +142,7 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Dynamic Morphing Blob Image */}
+        
         <motion.div 
           style={{ flex: "1 1 50%", display: "flex", justifyContent: "flex-end", position: "relative" }}
           initial={{ opacity: 0, scale: 0.95 }}
@@ -171,7 +171,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 2. ABOUT US (BIT STYLE Text Block) */}
+      
       <section style={{ maxWidth: "1200px", margin: "0 auto", padding: "80px 5vw 40px" }}>
         <h2 style={{ fontSize: "2rem", color: "var(--text-primary)", marginBottom: "30px", textTransform: "uppercase" }}>
           Rotaract Club of BIT
@@ -186,7 +186,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. OUR SERVICES (Expandable Accordion) */}
+      
       <section className="py-20 px-6 lg:px-12 max-w-7xl mx-auto font-['Inter']">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold text-deep-navy font-['Montserrat'] mb-4 uppercase tracking-tight">
@@ -205,7 +205,7 @@ export default function Home() {
                 key={service.id}
                 onHoverStart={() => setActiveService(idx)}
                 onHoverEnd={() => setActiveService(null)}
-                // Mobile layout adjusts height, Desktop layout adjusts width (Accordion effect)
+                
                 animate={{
                   width: window.innerWidth >= 768 ? (isActive ? "40%" : activeService !== null ? "20%" : "25%") : "100%",
                   height: window.innerWidth < 768 ? (isActive ? "300px" : "150px") : "100%"
@@ -217,7 +217,7 @@ export default function Home() {
                     : "shadow-md opacity-90 scale-100 hover:opacity-100"
                 }`}
               >
-                {/* Background Image */}
+                
                 <motion.div 
                   initial={false}
                   animate={{ scale: isActive ? 1.05 : 1 }}
@@ -226,10 +226,10 @@ export default function Home() {
                   style={{ backgroundImage: `url(${service.bgImage})` }}
                 />
                 
-                {/* Dark Gradient Overlay for Readability */}
+                
                 <div className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-90' : 'opacity-70 group-hover:opacity-60'}`}></div>
 
-                {/* Content Overlay */}
+                
                 <div className="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
                   <motion.div 
                     initial={false}
@@ -274,7 +274,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. THE FOUR-WAY TEST */}
+      
       <section style={{ padding: "100px 5vw", maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

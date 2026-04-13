@@ -50,7 +50,7 @@ export default function Members() {
 
   return (
     <div style={{ background: "white", minHeight: "100vh", paddingBottom: "100px" }}>
-      {/* Top Banner Image */}
+      
       <div style={{ width: "100%", height: "450px", overflow: "hidden", marginTop: "85px" }}>
         <img 
           src="/images/Gallery17.jpeg" 
@@ -59,7 +59,7 @@ export default function Members() {
         />
       </div>
 
-      {/* Tab Navigation Simulator */}
+      
       <div style={{ 
         display: "flex", 
         justifyContent: "center", 
@@ -73,7 +73,7 @@ export default function Members() {
         </div>
       </div>
 
-      {/* Team Grid */}
+      
       <motion.div
         variants={containerVariants}
         initial="hidden"

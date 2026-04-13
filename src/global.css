@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 @theme {
@@ -21,11 +22,8 @@ html, body {
 :root {
   --bg-primary: #FAFAFA;
   --bg-secondary: #FFFFFF;
-  --accent-pink: #D91B5C; /* Rotaract Cranberry */
-  --accent-light: #FF3377;
-  --accent-gold: #F7A81B; /* Rotaract Gold */
-  --accent-blue: #005DAA; /* Rotary Blue */
-  --text-primary: #0F172A;
+  --accent-pink: #D91B5C;   --accent-light: #FF3377;
+  --accent-gold: #F7A81B;   --accent-blue: #005DAA;   --text-primary: #0F172A;
   --text-secondary: #334155;
   --text-light: #64748B;
   --blob-1: rgba(217, 27, 92, 0.15);
@@ -56,7 +54,6 @@ section {
   position: relative;
 }
 
-/* Base Card Style */
 .card {
   background: var(--bg-secondary);
   border-radius: 16px;
@@ -65,7 +62,6 @@ section {
   transition: all 0.3s ease;
 }
 
-/* Pro Button Styling */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -104,7 +100,6 @@ section {
   color: white;
 }
 
-/* Generic Section Header */
 .section-header {
   text-align: center;
   margin-bottom: 60px;
@@ -122,7 +117,6 @@ section {
   line-height: 1.6;
 }
 
-/* Background Blobs Setup */
 .blob-bg {
   position: absolute;
   filter: blur(80px);

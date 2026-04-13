@@ -13,7 +13,7 @@ export default function Contact() {
   return (
     <section className="relative min-h-screen pt-32 pb-20 px-4 md:px-8 lg:px-12 bg-[var(--bg-primary)] flex flex-col font-['Inter'] transition-colors duration-500">
       
-      {/* Background Decor */}
+      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-[var(--blob-1)] blur-[120px] transition-colors duration-500"></div>
         <div className="absolute top-[30%] -right-[15%] w-[50%] h-[50%] rounded-full bg-[var(--blob-3)] blur-[120px] transition-colors duration-500"></div>
@@ -22,7 +22,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           
-          {/* Left Side: Typography & Messaging */}
+          
           <motion.div 
             className="lg:col-span-5 relative z-10 text-center lg:text-left"
             initial={{ opacity: 0, x: -40 }}
@@ -38,14 +38,14 @@ export default function Contact() {
             </p>
           </motion.div>
 
-          {/* Right Side: Action Tiles */}
+          
           <motion.div 
             className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           >
-            {/* Tile A: Join */}
+            
             <motion.div 
               whileHover={{ y: -5 }}
               className="group bg-[var(--bg-secondary)] backdrop-blur-xl border border-[rgba(128,128,128,0.2)] shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(233,30,99,0.15)] rounded-3xl p-6 md:p-8 transition-all duration-300 relative overflow-hidden h-full flex flex-col"
@@ -64,7 +64,7 @@ export default function Contact() {
               </button>
             </motion.div>
 
-            {/* Tile B: Collaborate */}
+            
             <motion.div 
               whileHover={{ y: -5 }}
               className="group bg-[var(--bg-secondary)] backdrop-blur-xl border border-[rgba(128,128,128,0.2)] shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,31,63,0.15)] rounded-3xl p-6 md:p-8 transition-all duration-300 relative overflow-hidden h-full flex flex-col"
@@ -83,7 +83,7 @@ export default function Contact() {
               </button>
             </motion.div>
 
-            {/* Tile C: Sponsorship */}
+            
             <motion.div 
               whileHover={{ y: -5 }}
               className="sm:col-span-2 lg:col-span-2 group bg-[var(--bg-secondary)] backdrop-blur-xl border border-[rgba(128,128,128,0.2)] shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(233,30,99,0.15)] rounded-3xl p-6 md:p-8 transition-all duration-300 relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8"
@@ -109,7 +109,7 @@ export default function Contact() {
 
         </div>
 
-        {/* Functional Footer */}
+        
         <motion.div 
           className="mt-20 pt-10 border-t border-[rgba(128,128,128,0.2)] flex flex-col sm:flex-row flex-wrap items-center justify-between gap-6 pb-8"
           initial={{ opacity: 0, y: 20 }}
@@ -140,7 +140,7 @@ export default function Contact() {
 
       </div>
 
-      {/* Email Form Modal */}
+      
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" style={{ zIndex: 1001 }}>

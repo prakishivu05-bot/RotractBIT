@@ -7,12 +7,11 @@ import "./nav.css";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState('light');
   const location = useLocation();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
   }, [theme]);
 
   useEffect(() => {
@@ -47,15 +46,12 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
     >
       <div className="nav-container">
-        {/* Logo */}
         <Link to="/" className="nav-logo">
           <img
             src="/images/Logo_new.jpeg"
             alt="Rotaract BIT Logo"
           />
         </Link>
-
-        {/* Desktop Links */}
         <div className="nav-desktop">
           {links.map((link) => (
             <Link 
@@ -85,14 +81,10 @@ export default function Navbar() {
             CONTACT US
           </Link>
         </div>
-
-        {/* Mobile Toggle Toggle */}
         <button className="nav-mobile-toggle" onClick={toggleMenu}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
-
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div 

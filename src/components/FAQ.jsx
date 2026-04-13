@@ -31,7 +31,7 @@ export default function FAQ() {
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: "50px", alignItems: "flex-start" }}>
         
-        {/* Accordion List */}
+        
         <div style={{ flex: "1 1 500px", display: "flex", flexDirection: "column", gap: "15px" }}>
           {faqs.map((faq, index) => {
             const isActive = activeIndex === index;
@@ -82,7 +82,7 @@ export default function FAQ() {
           })}
         </div>
 
-        {/* FAQ Image */}
+        
         <div style={{ flex: "1 1 400px", display: "flex", justifyContent: "center" }}>
           <motion.img 
             initial={{ opacity: 0, scale: 0.9 }}
