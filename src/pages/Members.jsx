@@ -24,7 +24,7 @@ export default function Members() {
     { designation: "Event Coordinator", name: "Rtr.Parinetha", logo_path: "/images/Parinetha.png" },
     { name: "Rtr.Varshita Buddula", designation: "Event Coordinator", logo_path: "/images/Varshita.png" },
     { name: "Rtr.Judah Samuel", designation: "Photography", logo_path: "/images/Judah.png" },
-    { designation: "Editorial", name: "Rtr.Shihaz Arfath", logo_path: "/images/" },
+    { designation: "Editorial", name: "Rtr.Shihaz Arfath", logo_path: "/images/Shihaz.png" },
     { name: "Rtr.Harshitha Jadhav", designation: "Graphic Designer", logo_path: "/images/Harshitha.png" },
     { designation: "Graphic Designer", name: "Rtr.Shreyas", logo_path: "/images/Shreyas.png" },
     { name: "Rtr.Rohith HM", designation: "Graphic Designer", logo_path: "/images/Rohit.png" },
