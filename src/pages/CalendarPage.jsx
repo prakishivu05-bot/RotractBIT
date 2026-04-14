@@ -167,19 +167,7 @@ export default function CalendarPage() {
                       </p>
                     </div>
 
-                    {hasPdf && (
-                      <div className="relative z-10 mt-8 pt-6 border-t border-[rgba(128,128,128,0.1)]">
-                        <a 
-                          href={`/uploads/${event.sourceFile}`} 
-                          target="_blank" 
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 text-sm font-bold text-blue-500 hover:text-vibrant-pink transition-colors"
-                        >
-                          <Download size={18} />
-                          Download Flyer
-                        </a>
-                      </div>
-                    )}
+
                   </motion.div>
                 );
               })}
