@@ -18,7 +18,7 @@ export default function Footer() {
         <div style={{ width: "2px", height: "50px", background: "rgba(0,0,0,0.1)" }}></div>
         <img src="/images/ufg.png" alt="Unite For Good" style={{ height: "65px", objectFit: "contain" }} />
         <div style={{ width: "2px", height: "50px", background: "rgba(0,0,0,0.1)" }}></div>
-        <img src="/images/Logo_new.jpeg" alt="Rotaract Club of BIT" className="logo-blend" style={{ height: "65px", objectFit: "contain", maxWidth: "250px" }} />
+        <img src="/images/logo_no_bg.png" alt="Rotaract Club of BIT" className="logo-blend" style={{ height: "65px", objectFit: "contain", maxWidth: "250px" }} />
       </div>
 
       <div style={{ 

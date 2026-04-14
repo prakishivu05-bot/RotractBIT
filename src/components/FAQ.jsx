@@ -88,8 +88,9 @@ export default function FAQ() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            src="/images/Logo_new.jpeg" 
+            src="/images/logo_no_bg.png" 
             alt="Club Logo" 
+            className="logo-blend"
             style={{ width: "100%", maxWidth: "450px", borderRadius: "12px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", objectFit: "contain", background: "var(--bg-secondary)", padding: "20px" }}
           />
         </div>

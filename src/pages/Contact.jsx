@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Mail, HelpCircle, UserPlus, Users, Briefcase, X } from 'lucide-react';
 import FAQ from '../components/FAQ';
 
-export default function Contact() {
+const Contact = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formSubject, setFormSubject] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formSubject, setFormSubject] = useState("");
 
   const openForm = (subject) => {
     setFormSubject(subject);
@@ -15,38 +15,44 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    const formData = new FormData(e.target);
-    
-    // TODO: Get your free access key from https://web3forms.com/
-    formData.append("access_key", "4d97dba7-fbba-4e49-8e4a-654b3711b6a7");
-    
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
+  setIsSubmitting(true);
+  
+  const formData = new FormData(e.target);
+  
+  // ✅ FIXED: Added your access key
+  formData.append("access_key", "4d97dba7-fbba-4e49-8e4a-654b3711b6a7");
 
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: json
-      }).then((res) => res.json());
+  // ✅ FIXED: Send mail to Google Group
+  formData.append("to_email", "bitrotract-contact@googlegroups.com");
 
-      if (res.success) {
-        alert("Message sent successfully!");
-        setIsModalOpen(false);
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      alert("Error sending message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
+  // ✅ OPTIONAL (good practice - reply goes to user)
+  formData.append("replyto", formData.get("email"));
+  
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: json
+    }).then((res) => res.json());
+
+    if (res.success) {
+      alert("Message sent successfully!");
+      setIsModalOpen(false);
+    } else {
+      alert("Something went wrong. Please try again.");
     }
-  };
+  } catch (error) {
+    alert("Error sending message. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   return (
     <>
     <section className="relative min-h-screen pt-32 pb-20 px-4 md:px-8 lg:px-12 bg-[var(--bg-primary)] flex flex-col font-['Inter'] transition-colors duration-500">
@@ -166,7 +172,7 @@ export default function Contact() {
               <div className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-[var(--bg-secondary)] border border-[rgba(128,128,128,0.2)] flex items-center justify-center group-hover:bg-[var(--blob-3)] transition-colors">
                 <Mail size={22} className="text-vibrant-pink sm:w-[18px] sm:h-[18px]" />
               </div>
-              <a href="mailto:bitrotract@gmail.com" className="font-medium text-lg sm:text-sm text-center">bitrotract@gmail.com</a>
+              <a href="mailto:bitrotract-contact@googlegroups.com" className="font-medium text-lg sm:text-sm text-center">bitrotract-contact@googlegroups.com</a>
             </div>
           </div>
 
@@ -230,4 +236,6 @@ export default function Contact() {
     </div>
     </>
   );
-}
+};
+
+export default Contact;

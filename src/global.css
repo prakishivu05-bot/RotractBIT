@@ -123,3 +123,15 @@ section {
   z-index: -1;
   border-radius: 50%;
 }
+
+.logo-blend {
+  mix-blend-mode: multiply;
+  filter: contrast(1.05);
+}
+
+[data-theme='dark'] .logo-blend {
+  mix-blend-mode: normal;
+  background: white;
+  border-radius: 8px;
+  padding: 4px;
+}

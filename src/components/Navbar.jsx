@@ -48,8 +48,9 @@ export default function Navbar() {
       <div className="nav-container">
         <Link to="/" className="nav-logo">
           <img
-            src="/images/Logo_new.jpeg"
+            src="/images/logo_no_bg.png"
             alt="Rotaract BIT Logo"
+            className="logo-blend"
           />
         </Link>
         <div className="nav-desktop">
