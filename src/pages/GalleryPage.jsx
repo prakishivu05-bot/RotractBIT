@@ -19,8 +19,6 @@ export default function GalleryPage() {
     "/images/Gallery15.png",
     "/images/Gallery16.jpeg",
     "/images/Gallery17.jpeg"
-  
-  ];
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
