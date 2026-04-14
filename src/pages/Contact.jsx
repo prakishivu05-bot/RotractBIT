@@ -19,7 +19,8 @@ const Contact = () => {
     setIsSubmitting(true);
 
     const formData = new FormData(e.target);
-    formData.append("access_key", "00d5c094-c739-4e29-86d2-45110c6dd3f9");
+    formData.append("access_key", "4d97dba7-fbba-4e49-8e4a-654b3711b6a7");
+    formData.append("to_email", "bitrotract-contact@googlegroups.com");
     formData.append("replyto", formData.get("email"));
 
     const object = Object.fromEntries(formData);
