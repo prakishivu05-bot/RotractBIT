@@ -19,11 +19,9 @@ const Contact = () => {
   
   const formData = new FormData(e.target);
   
-  // ✅ FIXED: Added your access key
-  formData.append("access_key", "4d97dba7-fbba-4e49-8e4a-654b3711b6a7");
-
-  // ✅ FIXED: Send mail to Google Group
-  formData.append("to_email", "bitrotract-contact@googlegroups.com");
+  // ✅ Web3Forms always sends to the email registered with this access key.
+  // We use an environment variable so the key isn't exposed in our code repo!
+  formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
 
   // ✅ OPTIONAL (good practice - reply goes to user)
   formData.append("replyto", formData.get("email"));
@@ -172,7 +170,7 @@ const Contact = () => {
               <div className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-[var(--bg-secondary)] border border-[rgba(128,128,128,0.2)] flex items-center justify-center group-hover:bg-[var(--blob-3)] transition-colors">
                 <Mail size={22} className="text-vibrant-pink sm:w-[18px] sm:h-[18px]" />
               </div>
-              <a href="mailto:bitrotract-contact@googlegroups.com" className="font-medium text-lg sm:text-sm text-center">bitrotract-contact@googlegroups.com</a>
+              <a href="mailto:bitrotaract@gmail.com" className="font-medium text-lg sm:text-sm text-center">bitrotaract@gmail.com</a>
             </div>
           </div>
 
