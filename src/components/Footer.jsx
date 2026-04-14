@@ -18,7 +18,7 @@ export default function Footer() {
         <div style={{ width: "2px", height: "50px", background: "rgba(0,0,0,0.1)" }}></div>
         <img src="/images/ufg.png" alt="Unite For Good" style={{ height: "65px", objectFit: "contain" }} />
         <div style={{ width: "2px", height: "50px", background: "rgba(0,0,0,0.1)" }}></div>
-        <img src="/images/Logo_new.jpeg" alt="Rotaract Club of BIT" style={{ height: "65px", objectFit: "contain", maxWidth: "250px" }} />
+        <img src="/images/Logo_new.jpeg" alt="Rotaract Club of BIT" className="logo-blend" style={{ height: "65px", objectFit: "contain", maxWidth: "250px" }} />
       </div>
 
       <div style={{ 
@@ -65,7 +65,7 @@ export default function Footer() {
         </a>
         
         
-        <a href="https://www.linkedin.com/company/rotaractclubofbit/posts/?feedView=all" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-secondary)", display: "flex", alignItems: "center", transition: "0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#0077B5"} onMouseOut={(e) => e.currentTarget.style.color = "var(--text-secondary)"}>
+        <a href="https://www.linkedin.com/company/rotaractclubofbit/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-secondary)", display: "flex", alignItems: "center", transition: "0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#0077B5"} onMouseOut={(e) => e.currentTarget.style.color = "var(--text-secondary)"}>
           <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
             <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 5 2.12 5 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2h.1c.5-.9 1.8-2.1 3.9-2.1 4.2 0 5 2.8 5 6.5V23h-4v-7.3c0-1.7-.1-3.9-2.4-3.9-2.4 0-2.8 1.8-2.8 3.7V23h-4V8z" />
           </svg>

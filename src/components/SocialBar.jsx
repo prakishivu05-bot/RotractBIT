@@ -9,7 +9,7 @@ export default function SocialBar() {
                 display: "flex",
                 flexDirection: "column",
                 gap: "18px",
-                zIndex: 9999
+                zIndex: 50
             }}
         >
             
@@ -43,7 +43,7 @@ export default function SocialBar() {
 
             
             <a
-                href="https://www.linkedin.com/company/rotaractclubofbit/posts/?feedView=all"
+                href="https://www.linkedin.com/company/rotaractclubofbit/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ opacity: 0.9 }}
