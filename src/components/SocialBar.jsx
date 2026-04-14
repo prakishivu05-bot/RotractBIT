@@ -67,7 +67,7 @@ export default function SocialBar() {
 
             
             <a
-                href="mailto:bitrotract@gmail.com"
+                href="mailto:bitrotaract@gmail.com"
                 style={{ opacity: 0.9 }}
             >
                 <svg

@@ -84,7 +84,7 @@ export default function Footer() {
             style={{ cursor: "pointer", transition: "color 0.3s" }}
           >
             Rtr. Prakhyath S
-          </motion.span> - Web Designer
+          </motion.span>
         </p>
       </div>
     </motion.footer>
