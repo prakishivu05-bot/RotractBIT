@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 
 export default function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
@@ -16,14 +16,21 @@ export default function SplashScreen() {
   const tagline = "Rotaract Club of Bangalore Institute Of Technology".split(" ");
 
   
-  const particles = useMemo(() => Array.from({ length: 25 }).map((_, i) => ({
-    id: i,
-    size: Math.random() * 12 + 4, 
-    left: `${Math.random() * 100}vw`, 
-    delay: Math.random() * 1.5,
-    duration: Math.random() * 2 + 1.5, 
-    isPink: Math.random() > 0.5
-  })), []);
+  const [particles, setParticles] = useState([]);
+
+  useEffect(() => {
+    const generated = Array.from({ length: 25 }).map((_, i) => ({
+      id: i,
+      size: Math.random() * 12 + 4,
+      left: `${Math.random() * 100}vw`,
+      delay: Math.random() * 1.5,
+      duration: Math.random() * 2 + 1.5,
+      isPink: Math.random() > 0.5
+    }));
+    setTimeout(() => {
+      setParticles(generated);
+    }, 0);
+  }, []);
 
   return (
     <AnimatePresence>

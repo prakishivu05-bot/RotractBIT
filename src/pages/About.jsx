@@ -1,29 +1,45 @@
 
 import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 
 export default function About() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
-    <section style={{ paddingTop: "140px", paddingBottom: "100px", maxWidth: "1200px", margin: "0 auto", paddingLeft: "5vw", paddingRight: "5vw", minHeight: "100vh" }}>
+    <section style={{ 
+      paddingTop: isMobile ? "100px" : "140px", 
+      paddingBottom: "80px", 
+      maxWidth: "1200px", 
+      margin: "0 auto", 
+      paddingLeft: "5vw", 
+      paddingRight: "5vw", 
+      minHeight: "100vh" 
+    }}>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "50px" }}>
         
         
-        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} style={{ flex: "1 1 400px", display: "flex", alignSelf: "stretch" }}>
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} style={{ flex: isMobile ? "1 1 100%" : "1 1 400px", display: "flex", alignSelf: "stretch" }}>
           <img 
             src="/images/Club1_service3.jpg" 
             alt="Team" 
-            style={{ width: "100%", minHeight: "400px", objectFit: "cover", borderRadius: "16px", boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }} 
+            style={{ width: "100%", minHeight: isMobile ? "250px" : "400px", objectFit: "cover", borderRadius: "16px", boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }} 
           />
         </motion.div>
 
         
-        <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} style={{ flex: "1 1 500px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <h2 style={{ fontSize: "2.5rem", color: "var(--text-primary)", marginBottom: "30px", fontWeight: "800" }}>
+        <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} style={{ flex: isMobile ? "1 1 100%" : "1 1 500px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <h2 style={{ fontSize: isMobile ? "2rem" : "2.5rem", color: "var(--text-primary)", marginBottom: "30px", fontWeight: "800", textAlign: isMobile ? "center" : "left" }}>
             Know More About Us
           </h2>
-          <p style={{ color: "var(--text-secondary)", lineHeight: "1.8", fontSize: "1.05rem", textAlign: "justify", marginBottom: "20px" }}>
+          <p style={{ color: "var(--text-secondary)", lineHeight: "1.8", fontSize: "1.05rem", textAlign: isMobile ? "left" : "justify", marginBottom: "20px" }}>
             The Rotaract Club of BIT is an institution based Rotaract Club established in the year 1991. Rotaract is a global youth service organization that is sponsored by Rotary International. It is designed for young adults who are interested in community service, leadership development, and networking. The Rotaract Club of BIT aims in community service and professional development of an individual. 
           </p>
-          <p style={{ color: "var(--text-secondary)", lineHeight: "1.8", fontSize: "1.05rem", textAlign: "justify", marginBottom: "30px" }}>
+          <p style={{ color: "var(--text-secondary)", lineHeight: "1.8", fontSize: "1.05rem", textAlign: isMobile ? "left" : "justify", marginBottom: "30px" }}>
             The club comes under the Rotaract District Organization 3191 and its sponsor club is Rotary Bangalore South. The Rotaract Club of BIT conducts innumerable events making it one of the most active Rotaract clubs. Some of these events are-Blood Donation Camp, Paper Drive, Rush Hours, Secret Santa, Akshara, Trek and Uptown Junk. All of these events create a positive impact on our community and also helps the individuals to enhance their professional as well as personal skills.
           </p>
 
@@ -36,8 +52,8 @@ export default function About() {
           viewport={{ once: true }}
           className="card"
           style={{
-              margin: "80px auto 0",
-              padding: "40px",
+              margin: isMobile ? "40px auto 0" : "80px auto 0",
+              padding: isMobile ? "30px 20px" : "40px",
               borderRadius: "20px",
               maxWidth: "800px",
               textAlign: "center"

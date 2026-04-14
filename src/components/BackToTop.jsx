@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronUp } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.scrollY > 300);
     };
+
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
@@ -20,7 +17,7 @@ export default function BackToTop() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -28,30 +25,27 @@ export default function BackToTop() {
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0 }}
+          exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
-          style={{
-            position: "fixed",
-            bottom: "40px",
-            right: "40px",
-            width: "50px",
-            height: "50px",
-            borderRadius: "50%",
-            background: "var(--accent-pink)",
-            color: "white",
-            border: "none",
-            boxShadow: "0 4px 15px rgba(192, 31, 92, 0.4)",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 9999
-          }}
-          whileHover={{ y: -5, boxShadow: "0 6px 20px rgba(192, 31, 92, 0.6)" }}
+          className="
+            fixed 
+            bottom-4 right-4 
+            sm:bottom-6 sm:right-6 
+            md:bottom-8 md:right-8
+            w-11 h-11 sm:w-12 sm:h-12
+            rounded-full
+            flex items-center justify-center
+            text-white
+            shadow-lg
+            z-50
+          "
+          style={{ background: "var(--accent-pink)" }}
+          whileHover={{ y: -4, scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <ChevronUp size={24} />
+          <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6" />
         </motion.button>
       )}
     </AnimatePresence>

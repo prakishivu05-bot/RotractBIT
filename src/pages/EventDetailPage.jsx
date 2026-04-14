@@ -1,7 +1,8 @@
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, Calendar, MapPin, Clock, Users, Star, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Calendar, MapPin, Clock, Users, ArrowRight, Share2, Heart, ShieldQuestion, Star, X, ChevronLeft, ChevronRight } from 'lucide-react';
+
 import { eventsData } from '../data/eventsData';
 
 
@@ -14,6 +15,13 @@ export default function EventDetailPage() {
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const event = eventsData.find(e => e.id === eventId);
 
@@ -117,7 +125,7 @@ export default function EventDetailPage() {
         <motion.div style={{ width: '100%', height: '120%', y: y1, backgroundImage: `url(${displayImage})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'absolute', top: '-10%', left: 0 }} />
         <motion.div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,15,30,0.95))', opacity }} />
         
-        <div style={{ position: 'relative', width: '100%', padding: '130px 5vw 5vw', color: 'white', zIndex: 10 }}>
+        <div style={{ position: 'relative', width: '100%', padding: isMobile ? '100px 5vw 40px' : '130px 5vw 5vw', color: 'white', zIndex: 10 }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
             <span style={{ 
               background: 'var(--accent-pink)', padding: '6px 16px', borderRadius: '30px', 
@@ -126,10 +134,10 @@ export default function EventDetailPage() {
             }}>
               {event.category}
             </span>
-            <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: 'white', marginBottom: '15px', lineHeight: '1.1', textShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
+            <h1 style={{ fontSize: isMobile ? '2.2rem' : 'clamp(2.5rem, 6vw, 4.5rem)', color: 'white', marginBottom: '15px', lineHeight: '1.2', textShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
               {event.title}
             </h1>
-            <p style={{ fontSize: '1.2rem', maxWidth: '800px', opacity: 0.9, marginBottom: '30px', lineHeight: '1.6' }}>
+            <p style={{ fontSize: isMobile ? '1rem' : '1.2rem', maxWidth: '800px', opacity: 0.9, marginBottom: '30px', lineHeight: '1.6' }}>
               {event.description}
             </p>
           </motion.div>
@@ -142,7 +150,7 @@ export default function EventDetailPage() {
         
         <motion.div 
           variants={containerVariants} initial="hidden" animate="show"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '60px' }}
+          style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '60px' }}
         >
           {[{
             icon: <Calendar size={24} color="var(--accent-pink)" />, title: "Date & Time",
@@ -222,25 +230,37 @@ export default function EventDetailPage() {
             {galleryImages.length > 0 && (
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }}>
               <h2 style={{ fontSize: '2rem', marginBottom: '25px' }}>Event Gallery</h2>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridAutoRows: '200px', gap: '15px' }}>
+              <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(12, 1fr)', 
+                gridAutoRows: isMobile ? '150px' : '200px', 
+                gap: isMobile ? '10px' : '15px' 
+              }}>
                 {galleryImages.map((img, i) => {
-                  let styleSpan = { gridColumn: 'span 4', gridRow: 'span 1' };
-                  if (galleryImages.length === 1) {
-                    styleSpan = { gridColumn: 'span 12', gridRow: 'span 2' };
-                  } else if (galleryImages.length === 2) {
-                    styleSpan = i === 0 ? { gridColumn: 'span 8', gridRow: 'span 2' } : { gridColumn: 'span 4', gridRow: 'span 2' };
-                  } else if (galleryImages.length === 3) {
-                    styleSpan = i === 0 ? { gridColumn: 'span 8', gridRow: 'span 2' } : { gridColumn: 'span 4', gridRow: 'span 1' };
-                  } else {
-                    const spans = [
-                      { gridColumn: 'span 8', gridRow: 'span 2' },
-                      { gridColumn: 'span 4', gridRow: 'span 1' },
-                      { gridColumn: 'span 4', gridRow: 'span 1' },
-                      { gridColumn: 'span 4', gridRow: 'span 1' },
-                      { gridColumn: 'span 4', gridRow: 'span 1' },
-                      { gridColumn: 'span 4', gridRow: 'span 1' },
-                    ];
-                    styleSpan = spans[i] || { gridColumn: 'span 4', gridRow: 'span 1' };
+                  let styleSpan = isMobile 
+                    ? { gridColumn: 'span 1', gridRow: 'span 1' }
+                    : { gridColumn: 'span 4', gridRow: 'span 1' };
+                  
+                  if (!isMobile) {
+                    if (galleryImages.length === 1) {
+                      styleSpan = { gridColumn: 'span 12', gridRow: 'span 2' };
+                    } else if (galleryImages.length === 2) {
+                      styleSpan = i === 0 ? { gridColumn: 'span 8', gridRow: 'span 2' } : { gridColumn: 'span 4', gridRow: 'span 2' };
+                    } else if (galleryImages.length === 3) {
+                      styleSpan = i === 0 ? { gridColumn: 'span 8', gridRow: 'span 2' } : { gridColumn: 'span 4', gridRow: 'span 1' };
+                    } else {
+                      const spans = [
+                        { gridColumn: 'span 8', gridRow: 'span 2' },
+                        { gridColumn: 'span 4', gridRow: 'span 1' },
+                        { gridColumn: 'span 4', gridRow: 'span 1' },
+                        { gridColumn: 'span 4', gridRow: 'span 1' },
+                        { gridColumn: 'span 4', gridRow: 'span 1' },
+                        { gridColumn: 'span 4', gridRow: 'span 1' },
+                      ];
+                      styleSpan = spans[i] || { gridColumn: 'span 4', gridRow: 'span 1' };
+                    }
+                  } else if (isMobile && i === 0 && galleryImages.length > 1) {
+                     styleSpan = { gridColumn: 'span 2', gridRow: 'span 1' };
                   }
 
                   return (

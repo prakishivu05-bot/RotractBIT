@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 
 export default function TeamCard({ name, designation, logo_path }) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <motion.div
       style={{
@@ -14,10 +22,11 @@ export default function TeamCard({ name, designation, logo_path }) {
     >
       <div 
         style={{
-          width: "210px",
-          height: "210px",
+          width: isMobile ? "140px" : "210px",
+          height: isMobile ? "140px" : "210px",
           borderRadius: "50%",
-          backgroundColor: "#f4f6e6",
+          backgroundColor: "var(--bg-secondary)",
+          border: "1px solid rgba(128,128,128,0.1)",
           overflow: "hidden",
           display: "flex",
           justifyContent: "center",
@@ -36,7 +45,7 @@ export default function TeamCard({ name, designation, logo_path }) {
         />
       </div>
 
-      <h3 style={{ margin: "0 0 10px 0", fontSize: "1.05rem", fontWeight: "800", color: "#1a3a5f" }}>
+      <h3 style={{ margin: "0 0 10px 0", fontSize: "1.05rem", fontWeight: "800", color: "var(--text-primary)" }}>
         {name}
       </h3>
       <div style={{ 

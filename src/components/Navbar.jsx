@@ -1,7 +1,7 @@
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Moon, Sun } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import "./nav.css";
 
 export default function Navbar() {
@@ -22,9 +22,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -36,6 +33,7 @@ export default function Navbar() {
     { name: "Image Gallery", path: "/gallery" },
     { name: "Our Publications", path: "/publications" },
     { name: "Updates & Announcements", path: "/updates" },
+    { name: "Members", path: "/members" },
   ];
 
   return (
@@ -91,7 +89,7 @@ export default function Navbar() {
           <motion.div
             className="nav-mobile-menu"
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "100vh" }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
           >
             {links.map((link) => (
@@ -104,6 +102,21 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              style={{
+                background: "transparent",
+                border: "none",
+                color: "var(--text-primary)",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center"
+              }}
+            >
+              {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
+            </button>
+
             <Link to="/contact" className="btn contact-btn" onClick={() => setIsOpen(false)}>
               CONTACT US
             </Link>

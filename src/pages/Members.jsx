@@ -1,7 +1,16 @@
 import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+
 import TeamCard from "../components/TeamCard";
 
 export default function Members() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const members = [
     { designation: "President", name: "Rtr.Vijhortha VS", logo_path: "/images/Vijhortha.png" },
     { name: "Rtr.Varun V", designation: "Vice President", logo_path: "/images/Varun.png" },
@@ -47,22 +56,22 @@ export default function Members() {
   };
 
   return (
-    <div style={{ background: "white", minHeight: "100vh", paddingBottom: "100px" }}>
-      
-      <div style={{ width: "100%", height: "450px", overflow: "hidden", marginTop: "85px" }}>
-        <img 
-          src="/images/Gallery17.jpeg" 
-          alt="Team Group" 
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }} 
+    <div style={{ background: "var(--bg-primary)", minHeight: "100vh", paddingBottom: "100px" }}>
+
+      <div style={{ width: "100%", height: isMobile ? "250px" : "450px", overflow: "hidden", marginTop: "85px" }}>
+        <img
+          src="/images/Gallery17.jpeg"
+          alt="Team Group"
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }}
         />
       </div>
 
-      
-      <div style={{ 
-        display: "flex", 
-        justifyContent: "center", 
-        borderBottom: "1px solid rgba(0,0,0,0.1)", 
-        maxWidth: "1000px", 
+
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        borderBottom: "1px solid rgba(128,128,128,0.2)",
+        maxWidth: "1000px",
         margin: "0 auto 60px",
         paddingTop: "20px"
       }}>
@@ -71,7 +80,7 @@ export default function Members() {
         </div>
       </div>
 
-      
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -79,7 +88,7 @@ export default function Members() {
         style={{
           display: "flex",
           flexWrap: "wrap",
-          gap: "60px 40px",
+          gap: isMobile ? "30px 20px" : "60px 40px",
           justifyContent: "center",
           maxWidth: "1150px",
           margin: "0 auto",
@@ -87,7 +96,7 @@ export default function Members() {
         }}
       >
         {members.map(member => (
-          <motion.div key={member.name} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} style={{ width: "240px" }}>
+          <motion.div key={member.name} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} style={{ width: isMobile ? "160px" : "240px" }}>
             <TeamCard
               name={member.name}
               designation={member.designation}

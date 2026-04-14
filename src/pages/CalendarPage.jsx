@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar as CalendarIcon, Download, Clock } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 
 export default function CalendarPage() {
   const [events, setEvents] = useState([]);
@@ -60,7 +60,7 @@ export default function CalendarPage() {
             Event <span className="text-transparent bg-clip-text bg-gradient-to-r from-vibrant-pink to-blue-600">Hub.</span>
           </h1>
           <p className="text-lg text-[var(--text-secondary)] max-w-2xl">
-            Powered by our AI Extractor. Discover what's happening in our Rotaract community, synced directly from our official circulars.
+            Powered by our AI Extractor. Discover what&apos;s happening in our Rotaract community, synced directly from our official circulars.
           </p>
         </motion.div>
 
@@ -69,7 +69,10 @@ export default function CalendarPage() {
           <h2 className="text-xl font-bold font-['Montserrat'] mb-6 flex items-center gap-2">
             <CalendarIcon className="text-vibrant-pink" /> Next 7 Days
           </h2>
-          <div className="flex gap-4 overflow-x-auto pb-4 snap-x no-scrollbar">
+          <div 
+            className="flex gap-4 overflow-x-auto pb-4 snap-x no-scrollbar"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
             {next7Days.map((date, idx) => {
               const dateStr = date.toISOString().split('T')[0];
               const dayEvents = events.filter(e => e.date === dateStr);

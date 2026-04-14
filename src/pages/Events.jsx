@@ -1,7 +1,8 @@
-import { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, MapPin, ArrowRight, Search, Image as ImageIcon } from "lucide-react";
+import { useState, useMemo, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { eventsData } from "../data/eventsData";
 
 const CATEGORIES = [
@@ -20,6 +21,13 @@ export default function Events() {
   const [searchTerm, setSearchTerm] = useState("");
   const [dateFilter, setDateFilter] = useState("All"); 
   const [visibleCount, setVisibleCount] = useState(6);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   
   const filteredEvents = useMemo(() => {
@@ -108,10 +116,12 @@ export default function Events() {
       
       <div style={{
         display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "20px",
-        maxWidth: "1200px", margin: "0 auto 40px auto", padding: "20px", background: "white",
-        borderRadius: "16px", boxShadow: "0 10px 30px -10px rgba(0,0,0,0.05)"
+        maxWidth: "1200px", margin: "0 auto 40px auto", padding: isMobile ? "15px" : "20px", background: "var(--bg-secondary)",
+        borderRadius: "16px", boxShadow: "0 10px 30px -10px rgba(0,0,0,0.05)",
+        flexDirection: isMobile ? "column" : "row",
+        border: "1px solid rgba(128,128,128,0.15)"
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px", flex: "1", minWidth: "250px", background: "var(--bg-primary)", padding: "12px 20px", borderRadius: "12px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", flex: "1", minWidth: isMobile ? "100%" : "250px", background: "var(--bg-primary)", padding: "12px 20px", borderRadius: "12px" }}>
           <Search size={20} color="var(--text-light)" />
           <input
             type="text"
@@ -129,13 +139,18 @@ export default function Events() {
             style={{
               padding: "12px 20px",
               borderRadius: "12px",
-              border: "1px solid rgba(0,0,0,0.1)",
-              background: "white",
+              border: "1px solid rgba(128,128,128,0.2)",
+              background: "var(--bg-primary)",
               color: "var(--text-primary)",
               fontWeight: "500",
               outline: "none",
               cursor: "pointer",
               appearance: "none",
+              width: isMobile ? "100%" : "auto",
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d91b5c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E")`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "right 15px center",
+              paddingRight: "45px"
             }}
           >
             <option value="All">All Time</option>
@@ -148,7 +163,7 @@ export default function Events() {
       
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
+        gridTemplateColumns: `repeat(auto-fill, minmax(${isMobile ? "280px" : "340px"}, 1fr))`,
         gap: "35px",
         maxWidth: "1200px",
         margin: "0 auto"
@@ -261,7 +276,7 @@ export default function Events() {
         <div style={{ textAlign: "center", padding: "60px 20px", color: "var(--text-secondary)" }}>
           <ImageIcon size={48} color="var(--text-light)" style={{ margin: "0 auto 15px auto", opacity: 0.5 }} />
           <h3>No events found</h3>
-          <p>Try adjusting your search or filters to find what you're looking for.</p>
+          <p>Try adjusting your search or filters to find what you&apos;re looking for.</p>
         </div>
       )}
 

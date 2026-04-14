@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 export default function GalleryPage() {
-  const images = [
+  const images = useMemo(() => [
     "/images/Gallery1.jpeg",
     "/images/Gallery2.jpeg",
     "/images/Gallery3.jpeg",
@@ -19,7 +19,7 @@ export default function GalleryPage() {
     "/images/Gallery15.png",
     "/images/Gallery16.jpeg",
     "/images/Gallery17.jpeg"
-  ];
+  ], []);
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -33,19 +33,19 @@ export default function GalleryPage() {
     setSelectedImage(null);
   };
 
-  const showNext = (e) => {
+  const showNext = useCallback((e) => {
     if (e) e.stopPropagation();
     const newIdx = (selectedIndex + 1) % images.length;
     setSelectedIndex(newIdx);
     setSelectedImage(images[newIdx]);
-  };
+  }, [selectedIndex, images]);
 
-  const showPrev = (e) => {
+  const showPrev = useCallback((e) => {
     if (e) e.stopPropagation();
     const newIdx = (selectedIndex - 1 + images.length) % images.length;
     setSelectedIndex(newIdx);
     setSelectedImage(images[newIdx]);
-  };
+  }, [selectedIndex, images]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -56,7 +56,7 @@ export default function GalleryPage() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedImage, selectedIndex]);
+  }, [selectedImage, showNext, showPrev]);
 
   return (
     <>
@@ -80,7 +80,7 @@ export default function GalleryPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.05, zIndex: 10, boxShadow: "0 20px 40px rgba(0,0,0,0.15)", rotate: Math.random() > 0.5 ? 2 : -2 }}
+            whileHover={{ scale: 1.05, zIndex: 10, boxShadow: "0 20px 40px rgba(0,0,0,0.15)", rotate: i % 2 === 0 ? 2 : -2 }}
             transition={{ duration: 0.4 }}
             onClick={() => openModal(i)}
             style={{ borderRadius: "12px", overflow: "hidden", height: "300px", background: "var(--bg-secondary)", cursor: "pointer", border: "1px solid rgba(0,0,0,0.05)" }}

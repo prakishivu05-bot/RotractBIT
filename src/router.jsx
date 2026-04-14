@@ -1,15 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
 
 import About from './pages/About';
-import Contact from './pages/Contact';
-import Home from './pages/Home';
-import Publications from './pages/Publications';
-import Members from './pages/Members';
-import Events from './pages/Events';
-import EventDetailPage from './pages/EventDetailPage';
-import Updates from './pages/Updates';
 import CalendarPage from './pages/CalendarPage';
+import Contact from './pages/Contact';
+import EventDetailPage from './pages/EventDetailPage';
+import Events from './pages/Events';
 import GalleryPage from './pages/GalleryPage';
+import Home from './pages/Home';
+import Members from './pages/Members';
+import Publications from './pages/Publications';
+import Updates from './pages/Updates';
 
 export default function Router() {
   return (

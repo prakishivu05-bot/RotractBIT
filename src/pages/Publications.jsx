@@ -1,7 +1,15 @@
 import { motion } from "framer-motion";
 import { FileText, Calendar, Download } from "lucide-react";
+import React, { useState, useEffect } from "react";
 
 export default function Publications() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const documents = [
     {
       title: "Rotaract BIT Club Report & Highlights",
@@ -18,10 +26,11 @@ export default function Publications() {
   ];
 
   return (
-    <section style={{ textAlign: "center", paddingTop: "120px" }}>
+    <section style={{ textAlign: "center", paddingTop: isMobile ? "100px" : "120px", paddingBottom: "60px", paddingLeft: "5vw", paddingRight: "5vw" }}>
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
+        style={{ fontSize: isMobile ? "2rem" : "2.5rem" }}
       >
         Publications & Resources
       </motion.h1>
@@ -34,7 +43,8 @@ export default function Publications() {
           margin: "0 auto",
           opacity: 0.85,
           lineHeight: "1.8",
-          marginBottom: "60px",
+          marginBottom: isMobile ? "40px" : "60px",
+          fontSize: isMobile ? "1rem" : "1.1rem"
         }}
       >
         A growing archive of our initiatives, milestones, and moments of impact — documented for
@@ -44,7 +54,7 @@ export default function Publications() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+          gridTemplateColumns: `repeat(auto-fit, minmax(${isMobile ? "280px" : "320px"}, 1fr))`,
           justifyContent: "center",
           gap: "30px",
           maxWidth: "900px",

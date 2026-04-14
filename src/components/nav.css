@@ -111,7 +111,8 @@
     flex-direction: column;
     padding: 20px 5vw;
     gap: 20px;
-    overflow: hidden;
+    overflow-y: auto;
+    max-height: calc(100vh - 80px); /* Subtract nav height */
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }

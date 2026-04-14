@@ -1,10 +1,10 @@
 import BackgroundBlobs from './components/BackgroundBlobs';
+import BackToTop from './components/BackToTop';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import SocialBar from './components/SocialBar';
-import Router from './router';
-import BackToTop from './components/BackToTop';
 import SplashScreen from './components/SplashScreen';
+import Router from './router';
 
 export default function App() {
   return (
