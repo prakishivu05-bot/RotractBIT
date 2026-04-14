@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import TeamCard from "../components/TeamCard";
 
 export default function Members() {
-  const navigate = useNavigate();
   const members = [
     { designation: "President", name: "Rtr.Vijhortha VS", logo_path: "/images/Vijhortha.png" },
     { name: "Rtr.Varun V", designation: "Vice President", logo_path: "/images/Varun.png" },

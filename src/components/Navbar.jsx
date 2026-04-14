@@ -39,7 +39,7 @@ export default function Navbar() {
   ];
 
   return (
-    <motion.nav 
+    <motion.nav
       className={`nav ${scrolled ? "scrolled" : ""}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -55,24 +55,24 @@ export default function Navbar() {
         </Link>
         <div className="nav-desktop">
           {links.map((link) => (
-            <Link 
-              key={link.path} 
+            <Link
+              key={link.path}
               to={link.path}
               className={location.pathname === link.path ? "active" : ""}
             >
               {link.name}
             </Link>
           ))}
-          
-          <button 
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} 
-            style={{ 
-              background: "transparent", 
-              border: "none", 
-              color: "var(--text-primary)", 
-              cursor: "pointer", 
-              display: "flex", 
-              alignItems: "center" 
+
+          <button
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            style={{
+              background: "transparent",
+              border: "none",
+              color: "var(--text-primary)",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center"
             }}
           >
             {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
@@ -88,15 +88,15 @@ export default function Navbar() {
       </div>
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             className="nav-mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "100vh" }}
             exit={{ opacity: 0, height: 0 }}
           >
             {links.map((link) => (
-              <Link 
-                key={link.path} 
+              <Link
+                key={link.path}
                 to={link.path}
                 className={location.pathname === link.path ? "active" : ""}
                 onClick={() => setIsOpen(false)}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar as CalendarIcon, Download, Clock, MapPin, Tag } from 'lucide-react';
+import { Calendar as CalendarIcon, Download, Clock } from 'lucide-react';
 
 export default function CalendarPage() {
   const [events, setEvents] = useState([]);

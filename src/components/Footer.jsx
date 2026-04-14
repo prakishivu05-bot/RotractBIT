@@ -1,4 +1,4 @@
-import { Video, Camera, Briefcase, Mail, FileText } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export default function Footer() {
   return (

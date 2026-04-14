@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 @theme {
   --color-deep-navy: #001F3F;
