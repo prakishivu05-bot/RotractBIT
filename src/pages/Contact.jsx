@@ -1,16 +1,54 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Mail, HelpCircle, UserPlus, Users, Briefcase, X } from 'lucide-react';
+import FAQ from '../components/FAQ';
 
 export default function Contact() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formSubject, setFormSubject] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const openForm = (subject) => {
     setFormSubject(subject);
     setIsModalOpen(true);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.target);
+    
+    // TODO: Get your free access key from https://web3forms.com/
+    formData.append("access_key", "4d97dba7-fbba-4e49-8e4a-654b3711b6a7");
+    
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      }).then((res) => res.json());
+
+      if (res.success) {
+        alert("Message sent successfully!");
+        setIsModalOpen(false);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Error sending message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
+    <>
     <section className="relative min-h-screen pt-32 pb-20 px-4 md:px-8 lg:px-12 bg-[var(--bg-primary)] flex flex-col font-['Inter'] transition-colors duration-500">
       
       
@@ -121,14 +159,14 @@ export default function Contact() {
               <div className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-[var(--bg-secondary)] border border-[rgba(128,128,128,0.2)] flex items-center justify-center group-hover:bg-[var(--blob-3)] transition-colors">
                 <MapPin size={22} className="text-vibrant-pink sm:w-[18px] sm:h-[18px]" />
               </div>
-              <span className="font-medium text-lg sm:text-sm">[Insert Building/Room Number]</span>
+              <span className="font-medium text-lg sm:text-sm">Bangalore Institute of Technology, Bengaluru</span>
             </div>
             
             <div className="flex flex-col sm:flex-row items-center gap-3 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors group cursor-pointer">
               <div className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-[var(--bg-secondary)] border border-[rgba(128,128,128,0.2)] flex items-center justify-center group-hover:bg-[var(--blob-3)] transition-colors">
                 <Mail size={22} className="text-vibrant-pink sm:w-[18px] sm:h-[18px]" />
               </div>
-              <a href="mailto:info@rotaractclub.org" className="font-medium text-lg sm:text-sm text-center">info@rotaractclub.org</a>
+              <a href="mailto:bitrotract@gmail.com" className="font-medium text-lg sm:text-sm text-center">bitrotract@gmail.com</a>
             </div>
           </div>
 
@@ -162,22 +200,22 @@ export default function Contact() {
                 <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-3 font-['Montserrat']">Send a message.</h2>
                 <p className="text-lg text-[var(--text-secondary)] mb-8">We're here to answer any questions you may have.</p>
                 
-                <form className="flex flex-col gap-5 sm:gap-6" onSubmit={(e) => { e.preventDefault(); alert("Message Sent!"); setIsModalOpen(false); }}>
+                <form className="flex flex-col gap-5 sm:gap-6" onSubmit={handleSubmit}>
                   <div className="flex flex-col gap-1">
-                    <input type="text" placeholder="Your Name" required className="w-full px-4 py-4 sm:py-3 text-lg sm:text-base text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[rgba(128,128,128,0.2)] rounded-xl focus:outline-none focus:ring-2 focus:ring-vibrant-pink/50 focus:border-vibrant-pink transition-all placeholder:text-[var(--text-secondary)]" />
+                    <input type="text" name="name" placeholder="Your Name" required className="w-full px-4 py-4 sm:py-3 text-lg sm:text-base text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[rgba(128,128,128,0.2)] rounded-xl focus:outline-none focus:ring-2 focus:ring-vibrant-pink/50 focus:border-vibrant-pink transition-all placeholder:text-[var(--text-secondary)]" />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <input type="email" placeholder="Your email address" required className="w-full px-4 py-4 sm:py-3 text-lg sm:text-base text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[rgba(128,128,128,0.2)] rounded-xl focus:outline-none focus:ring-2 focus:ring-vibrant-pink/50 focus:border-vibrant-pink transition-all placeholder:text-[var(--text-secondary)]" />
+                    <input type="email" name="email" placeholder="Your email address" required className="w-full px-4 py-4 sm:py-3 text-lg sm:text-base text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[rgba(128,128,128,0.2)] rounded-xl focus:outline-none focus:ring-2 focus:ring-vibrant-pink/50 focus:border-vibrant-pink transition-all placeholder:text-[var(--text-secondary)]" />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <input type="text" placeholder="Subject" value={formSubject} onChange={(e) => setFormSubject(e.target.value)} required className="w-full px-4 py-4 sm:py-3 text-lg sm:text-base text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[rgba(128,128,128,0.2)] rounded-xl focus:outline-none focus:ring-2 focus:ring-vibrant-pink/50 focus:border-vibrant-pink transition-all placeholder:text-[var(--text-secondary)]" />
+                    <input type="text" name="subject" placeholder="Subject" value={formSubject} onChange={(e) => setFormSubject(e.target.value)} required className="w-full px-4 py-4 sm:py-3 text-lg sm:text-base text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[rgba(128,128,128,0.2)] rounded-xl focus:outline-none focus:ring-2 focus:ring-vibrant-pink/50 focus:border-vibrant-pink transition-all placeholder:text-[var(--text-secondary)]" />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <textarea placeholder="Your Message" rows="4" required className="w-full px-4 py-4 sm:py-3 text-lg sm:text-base text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[rgba(128,128,128,0.2)] rounded-xl focus:outline-none focus:ring-2 focus:ring-vibrant-pink/50 focus:border-vibrant-pink transition-all resize-none placeholder:text-[var(--text-secondary)]"></textarea>
+                    <textarea name="message" placeholder="Your Message" rows="4" required className="w-full px-4 py-4 sm:py-3 text-lg sm:text-base text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[rgba(128,128,128,0.2)] rounded-xl focus:outline-none focus:ring-2 focus:ring-vibrant-pink/50 focus:border-vibrant-pink transition-all resize-none placeholder:text-[var(--text-secondary)]"></textarea>
                   </div>
                   
-                  <button type="submit" className="mt-2 w-full py-4 text-lg px-6 rounded-xl bg-vibrant-pink text-white font-bold tracking-wide uppercase hover:bg-pink-600 transition-colors shadow-lg shadow-pink-500/30">
-                    Send Email
+                  <button type="submit" disabled={isSubmitting} className="mt-2 w-full py-4 text-lg px-6 rounded-xl bg-vibrant-pink text-white font-bold tracking-wide uppercase hover:bg-pink-600 transition-colors shadow-lg shadow-pink-500/30 disabled:opacity-70 disabled:cursor-not-allowed">
+                    {isSubmitting ? "Sending..." : "Send Email"}
                   </button>
                 </form>
               </div>
@@ -187,5 +225,9 @@ export default function Contact() {
       </AnimatePresence>
 
     </section>
+    <div id="faq" className="w-full bg-[var(--bg-primary)] border-t border-[rgba(128,128,128,0.2)]">
+      <FAQ />
+    </div>
+    </>
   );
 }
