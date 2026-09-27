@@ -1,5 +1,86 @@
 export const eventsData = [
   {
+    id: "act-beyond-the-badge-2026",
+    title: "Beyond the Badge – Board of Directors Orientation",
+    category: "Meeting",
+    date: new Date("2026-08-24"),
+    location: "Google Meet (Online)",
+    description: "A Board of Directors orientation focused on leadership, teamwork, and effective club functioning.",
+    longDescription: "26 members from RCBIT participated in the 'Beyond the Badge – Board of Directors Orientation' conducted by PP. Rtr. Hemanth Chhajer. The orientation focused on helping members understand leadership, responsibilities, teamwork and effective functioning within a Rotaract club.\n\nThe session provided valuable guidance to the participating members and helped them gain better clarity about their roles, responsibilities and the importance of coordination and accountability while working as part of the club leadership team.",
+    impact: [
+      "26 RCBIT members participated",
+      "Orientation conducted by PP. Rtr. Hemanth Chhajer",
+      "Enhanced clarity on roles, accountability, and leadership coordination"
+    ],
+    schedule: [
+      { time: '07:30 PM', title: 'BOD Orientation Session' }
+    ],
+    images: [
+      "/images/bod_orientation_1.png",
+      "/images/bod_orientation_2.png",
+      "/images/bod_orientation_6.png",
+      "/images/bod_orientation_3.png",
+      "/images/bod_orientation_4.png",
+      "/images/bod_orientation_5.png"
+    ],
+    image: "/images/bod_orientation_1.png",
+    monthYear: "August 2026"
+  },
+  {
+    id: "act-yuvaa-2026",
+    title: "YUVAA 2026 – Youth United for Vision, Action & Advocacy",
+    category: "Meeting",
+    date: new Date("2026-08-12"),
+    location: "Google Meet (Online)",
+    description: "The Interact–Rotaract Youth Conference focused on youth leadership, advocacy, governance and youth engagement.",
+    longDescription: "RCBIT participated in YUVAA 2026, an Interact–Rotaract Youth Conference focused on youth leadership, advocacy, governance and youth engagement. The session centred around the theme 'Who Owns the Future? – Governing' and featured speakers from diverse backgrounds who shared their perspectives and experiences. The session provided members with valuable insights into governance, leadership, civic participation and the role of young people in shaping the future.\n\nThe participation also gave RCBIT members an opportunity to interact with and learn alongside members of the wider Rotaract and Interact community. The discussions encouraged members to think critically about their responsibilities as young leaders and the impact they can create through active participation and leadership.",
+    impact: [
+      "11 RCBIT members actively participated",
+      "Hosted by Rotaract Club of Delhi Genesis Midwest & Rotaract Bangalore East",
+      "Speakers: Anirudh Vijayan, Anusha Garg, Sheena Sachdev & Baksheeh Sachar",
+      "Themed: 'Who Owns the Future? – Governing'"
+    ],
+    schedule: [
+      { time: '06:00 PM', title: 'Panel Discussion & Youth Conference' }
+    ],
+    images: [
+      "/images/yuvaa_2026_3.png",
+      "/images/yuvaa_2026_5.png",
+      "/images/yuvaa_2026_4.png",
+      "/images/yuvaa_2026_1.png",
+      "/images/yuvaa_2026_6.png",
+      "/images/yuvaa_2026_2.png"
+    ],
+    image: "/images/yuvaa_2026_3.png",
+    monthYear: "August 2026"
+  },
+  {
+    id: "act-scoops-and-smiles-2026",
+    title: "Scoops and Smiles",
+    category: "Activity",
+    date: new Date("2026-07-22"),
+    location: "Polar Bear, V. V. Puram",
+    description: "A Club Service fellowship activity aimed at strengthening the bond among club members.",
+    longDescription: "Scoops and Smiles was a Club Service fellowship activity conducted at Polar Bear, V. V. Puram, aimed at strengthening the bond among club members on 22nd July, 2026. The casual ice cream gathering provided a relaxed space for members to connect, share laughs, and build lasting friendships.",
+    impact: [
+      "Club Service fellowship gathering",
+      "Strengthened bonds among club members",
+      "Conducted at Polar Bear, V. V. Puram"
+    ],
+    schedule: [
+      { time: '06:00 PM', title: 'Fellowship & Ice Cream Meet' }
+    ],
+    images: [
+      "/images/scoops_and_smiles_1.jpg",
+      "/images/scoops_and_smiles_2.jpg",
+      "/images/scoops_and_smiles_3.jpg",
+      "/images/scoops_and_smiles_4.jpg",
+      "/images/scoops_and_smiles_5.jpg"
+    ],
+    image: "/images/scoops_and_smiles_1.jpg",
+    monthYear: "July 2026"
+  },
+  {
     id: "act-1",
     title: "Badminton Meet",
     category: "Activity",

@@ -15,6 +15,10 @@ export default function Gallery() {
   }, []);
 
   const images = useMemo(() => [
+    "/images/Gallery18.jpg",
+    "/images/Gallery19.jpg",
+    "/images/Gallery20.jpg",
+    "/images/Gallery21.jpg",
     "/images/Gallery17.jpeg",
     "/images/Gallery3.jpeg",
     "/images/Gallery4.jpeg",

@@ -35,8 +35,12 @@ export default function TeamCard({ name, designation, logo_path }) {
         }}
       >
         <img
-          src={logo_path}
+          src={logo_path || "/images/shape-person.png"}
           alt={name}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "/images/shape-person.png";
+          }}
           style={{
             width: "100%",
             height: "100%",
