@@ -82,7 +82,7 @@ export default function Members() {
     { name: "Ruthu Bhairavi C", designation: "Marketing", logo_path: "/images/Ruthu_Bhairavi.jpg" },
     { name: "MD Sofi", designation: "Photography", logo_path: "/images/MD_Sofi.jpg" },
     { name: "Aishwarya Darshini S", designation: "Design Team", logo_path: "/images/Aishwarya.png" },
-    { name: "Harshini M", designation: "Design Team", logo_path: "/images/Harshini_M.webp" },
+    { name: "Harshini Reddy", designation: "Design Team", logo_path: "/images/Harshini_Reddy.jpg" },
     { name: "Skanda K N", designation: "Web Designer", logo_path: "/images/Skanda_KN.jpg" }
   ];
 
