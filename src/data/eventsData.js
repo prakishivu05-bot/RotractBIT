@@ -1,5 +1,293 @@
 export const eventsData = [
   {
+    id: "act-utthana-2026",
+    title: "UTTHĀNA 2026 – Installation Ceremony",
+    category: "Installation",
+    date: new Date("2026-09-30"),
+    location: "ECE LAB 404, Bangalore Institute of Technology",
+    description: "The formal installation ceremony of the newly appointed Board of Directors for the Rotaract Year 2026–27.",
+    longDescription: "UTTHĀNA 2026 – Installation Ceremony was organised by the Rotaract Club of Bangalore Institute of Technology to mark the official beginning of the new Rotaract year and the formal induction of the newly appointed Board of Directors. The ceremony served as an important milestone for the club, bringing together members, newly inducted Rotaractors, board members and dignitaries to witness the transition of responsibilities and the beginning of a new phase of leadership.\n\nThe ceremony included the formal induction of the new members and the installation of the Board of Directors for the Rotaract Year 2026–27. The event provided an opportunity to introduce the newly appointed office bearers and recognise the responsibilities entrusted to them. The proceedings also highlighted the importance of leadership, teamwork, accountability and active participation in carrying forward the objectives and values of Rotaract.\n\nThe event marked a meaningful beginning to the club year and strengthened the commitment of the members towards working together for the successful execution of upcoming initiatives. With the induction of 16 new members and the transition of responsibilities to the new Board of Directors, UTTHĀNA 2026 established a strong foundation for the club's activities and projects for the year ahead.",
+    impact: [
+      "55 total participants and dignitaries attended",
+      "16 newly inducted members & 13 retained members (29 club strength)",
+      "Formal induction of the 2026–27 Board of Directors",
+      "Avenue of Service: Club Service"
+    ],
+    schedule: [
+      { time: '09:30 AM', title: 'Commencement & Welcome Dignitaries' },
+      { time: '10:15 AM', title: 'Induction of New Members & BOD Installation' },
+      { time: '11:15 AM', title: 'Addresses by Dignitaries & Adjournment' }
+    ],
+    images: [
+      "/images/Installation2.JPG",
+      "/images/Install3.JPG",
+      "/images/Install4.JPG",
+      "/images/Install5.JPG",
+      "/images/Install6.jpeg",
+      "/images/Install7.jpeg"
+    ],
+    image: "/images/Installation2.JPG",
+    monthYear: "September 2026"
+  },
+  {
+    id: "meet-beyond-the-role-2026",
+    title: "Beyond the Role – Club Orientation 2026",
+    category: "Meeting",
+    date: new Date("2026-09-30"),
+    location: "Google Meet (Online)",
+    description: "An orientation session on club responsibilities and active participation conducted by IPP. Rtn. Rtr. Hitha Suresh.",
+    longDescription: "Beyond the Role – Club Orientation 2026 was conducted as an orientation session for members of the Rotaract Club of Bangalore Institute of Technology. The session provided members with an opportunity to understand the importance of their roles and responsibilities within the club and encouraged them to actively participate in club activities and initiatives.\n\nThe orientation was conducted by IPP. Rtn. Rtr. Hitha Suresh through Google Meet. The session focused on helping members understand the responsibilities associated with being part of a Rotaract club and the importance of leadership, teamwork, coordination and active involvement. The interactive nature of the orientation allowed members to gain greater clarity about their roles and how they could contribute effectively to the functioning of the club.\n\nThe orientation helped strengthen the understanding of club functioning among the participating members and encouraged them to take greater ownership of their responsibilities. Overall, Beyond the Role helped members gain a better perspective on their responsibilities and encouraged stronger engagement with the club.",
+    impact: [
+      "30 participating members attended",
+      "Conducted by IPP. Rtn. Rtr. Hitha Suresh",
+      "Comprehensive clarity on leadership, teamwork and club responsibilities",
+      "Avenue of Service: Club Service"
+    ],
+    schedule: [
+      { time: '06:30 PM', title: 'Orientation Commencement & Role Overview' },
+      { time: '07:15 PM', title: 'Leadership Coordination & Open Discussion' }
+    ],
+    images: [
+      "/images/bod_orientation_1.png",
+      "/images/BOD_Meet.jpeg"
+    ],
+    image: "/images/bod_orientation_1.png",
+    monthYear: "September 2026"
+  },
+  {
+    id: "meet-beyond-the-avenues-2026",
+    title: "Beyond the Avenues – Club Learning & Development Session",
+    category: "Meeting",
+    date: new Date("2026-09-30"),
+    location: "Google Meet (Online)",
+    description: "A professional development session covering Rotary & Rotaract structure, governance, and the Seven Areas of Focus.",
+    longDescription: "Beyond the Avenues – Club Learning & Development Session was conducted as a professional development session for members of the Rotaract Club of Bangalore Institute of Technology. The session was facilitated by ZRR. IPP. Rtn. Rtr. Hitha Suresh and focused on providing members with a better understanding of Rotary and Rotaract, their structure, functioning and the various aspects involved in effective club administration and leadership.\n\nThe session covered important topics including the structure and functioning of Rotary and Rotaract, Avenues of Service and the Seven Areas of Focus. The members were introduced to areas such as Promoting Peace, Fighting Disease, Providing Clean Water, Sanitation and Hygiene, Saving Mothers and Children, Supporting Education, Growing Local Economies and Supporting the Environment. The discussion also covered Finance and Foundation, club responsibilities, organisational guidelines, leadership, communication, accountability, planning and reporting.\n\nThe session helped members develop a broader understanding of how a Rotaract club functions within the larger Rotary framework and strengthened their understanding of effective Rotaract functioning.",
+    impact: [
+      "21 participants completed the professional development module",
+      "Facilitated by ZRR. IPP. Rtn. Rtr. Hitha Suresh",
+      "Comprehensive introduction to the Seven Areas of Focus & Rotary Governance",
+      "Avenue of Service: Professional Development"
+    ],
+    schedule: [
+      { time: '07:30 PM', title: 'Rotary & Rotaract Framework & Seven Areas of Focus' },
+      { time: '08:00 PM', title: 'Administration, Reporting & Governance Q&A' }
+    ],
+    images: [
+      "/images/bod_orientation_3.png",
+      "/images/District_profMeet.jpeg"
+    ],
+    image: "/images/District_profMeet.jpeg",
+    monthYear: "September 2026"
+  },
+  {
+    id: "meet-gbm-sep-2026",
+    title: "General Body Meeting – September 2026",
+    category: "Meeting",
+    date: new Date("2026-09-30"),
+    location: "Online",
+    description: "Quarterly general body meeting reviewing ongoing initiatives, member engagement, and avenue action plans.",
+    longDescription: "The General Body Meeting of the Rotaract Club of Bangalore Institute of Technology was held online to review ongoing club activities, membership engagement, and operational plans for the upcoming quarter.\n\nThe meeting commenced with an update and discussion on the E-Impact event. The members reviewed the progress of the event and discussed its finalisation and closure planned by 15th October. The current membership status was reviewed, followed by a discussion on member engagement and further membership additions.\n\nThe meeting also focused on Sub-Core and Core Team coordination. Individual Core Members were assigned as Points of Contact (POCs) for designated groups of Sub-Core Members to monitor weekly updates. Upcoming Professional Service, Community Service, Club Service, Public Relations, Next Generation/Interact, and International Service initiatives were thoroughly planned, concluding with the finalisation of the quarterly action plan.",
+    impact: [
+      "13 members participated in quarterly roadmap planning",
+      "E-Impact project closure scheduled for 15th October",
+      "Assigned Core Members as POCs for Sub-Core weekly coordination",
+      "Finalized action plans across all avenues of service"
+    ],
+    schedule: [
+      { time: '08:30 PM', title: 'Meeting Call to Order & E-Impact Update' },
+      { time: '08:50 PM', title: 'Core/Sub-Core POC Coordination & Membership Review' },
+      { time: '09:10 PM', title: 'Quarterly Action Plan Finalization & Adjournment' }
+    ],
+    images: [
+      "/images/GBM1.png",
+      "/images/GBM2.jpeg"
+    ],
+    image: "/images/GBM1.png",
+    monthYear: "September 2026"
+  },
+  {
+    id: "meet-bod-connect-1-2026",
+    title: "BOD Connect 1 – Review & Planning Meeting",
+    category: "Meeting",
+    date: new Date("2026-09-29"),
+    location: "Bangalore Institute of Technology",
+    description: "Board of Directors review meeting analyzing Utthāna 2026 and aligning on upcoming club projects.",
+    longDescription: "The BOD Connect 1 meeting commenced with a review of the recently concluded installation ceremony, UTTHĀNA 2026. The BOD members discussed the overall execution, coordination, responsibilities handled by the team and the aspects that were successfully carried out during the event.\n\nThe members reflected on the areas that could be improved in future activities, particularly in terms of planning, communication, coordination, task allocation, time management and execution. Suggestions were shared to improve the overall efficiency and coordination of the team.\n\nThe discussion then focused on the club's upcoming activities and projects. The BOD members reviewed the event calendar, discussed the planned initiatives and identified the responsibilities and tasks to be undertaken by the respective members, aligning on necessary preparations for future club projects.",
+    impact: [
+      "Comprehensive review of UTTHĀNA 2026 Installation Ceremony",
+      "Event calendar reviewed & upcoming initiatives mapped",
+      "Enhanced task allocation, communication and execution strategies",
+      "Avenue of Service: Club Service"
+    ],
+    schedule: [
+      { time: '04:00 PM', title: 'Utthāna 2026 Review & Reflections' },
+      { time: '04:45 PM', title: 'Event Calendar Review & Responsibility Alignment' }
+    ],
+    images: [
+      "/images/bod_orientation_2.png",
+      "/images/BOD_Meet.jpeg"
+    ],
+    image: "/images/BOD_Meet.jpeg",
+    monthYear: "September 2026"
+  },
+  {
+    id: "meet-bod-connect-2-2026",
+    title: "BOD Connect 2 – Review & Planning Meeting",
+    category: "Meeting",
+    date: new Date("2026-09-29"),
+    location: "Bangalore Institute of Technology",
+    description: "Strategic board review focusing on ongoing projects, member engagement ideas, and reporting procedures.",
+    longDescription: "The BOD Connect 2 meeting commenced with a review of the club's ongoing activities and the progress of the responsibilities undertaken by the Board of Directors. The members discussed the work completed so far, the tasks that were in progress and the areas that required further attention. The importance of maintaining proper coordination among the BOD members was emphasised.\n\nThe discussion then focused on the upcoming projects and activities planned by the club. The event calendar was reviewed, and the members discussed the requirements, timelines and preparations needed for the successful execution of each initiative.\n\nFurther, the members discussed ideas and suggestions for future club initiatives and ways to improve member engagement and participation. The importance of maintaining proper documentation, planning activities in advance and following the club's reporting and coordination procedures was also discussed, concluding with alignment on timelines and preparations.",
+    impact: [
+      "Progress review across all avenue responsibilities",
+      "Timeline and resource planning for upcoming quarter initiatives",
+      "Strengthened documentation, coordination, and reporting protocols",
+      "Avenue of Service: Club Service"
+    ],
+    schedule: [
+      { time: '05:00 PM', title: 'Avenue Progress Review & Work Evaluation' },
+      { time: '05:45 PM', title: 'Future Project Planning & Documentation Protocols' }
+    ],
+    images: [
+      "/images/bod_orientation_5.png",
+      "/images/bod_orientation_6.png"
+    ],
+    image: "/images/bod_orientation_5.png",
+    monthYear: "September 2026"
+  },
+  {
+    id: "act-project-vidya-2026",
+    title: "Project Vidya – Stationery Kit Donation Drive",
+    category: "Project",
+    date: new Date("2026-09-26"),
+    location: "Government School, Gandhi Nagar, Bengaluru",
+    description: "A joint community service initiative supporting 110 government school students with essential stationery kits.",
+    longDescription: "Project Vidya was organised by the Rotaract Club of Bangalore Institute of Technology in collaboration with and sponsored by the Rotaract Club of Bangalore Aagneya with the objective of supporting students of a government school by providing them with essential stationery and educational materials. The initiative focused on encouraging students in their academic journey and ensuring that they had access to basic learning materials required for their everyday studies.\n\nA total of 110 students benefited from the initiative. As part of the drive, stationery kits were distributed according to the requirements of different age groups and classes. Students from 1st to 4th standard received four books, one drawing book, pencils, a scale, crayons and other essential stationery items. Students from 5th standard onwards received four books along with the required pencils and other stationery materials.\n\nEight RCBIT members participated as volunteers and contributed 24 volunteer hours in coordinating and supporting the distribution of the kits to the students. The initiative created a positive impact by providing students with useful educational resources, supporting basic education and literacy while demonstrating the strength of inter-club collaboration.",
+    impact: [
+      "110 government school students benefited with comprehensive stationery kits",
+      "₹28,450 worth of educational materials distributed in-kind",
+      "Joint Initiative with Rotaract Club of Bangalore Aagneya",
+      "8 RCBIT student volunteers contributed 24 volunteer hours",
+      "Area of Focus: Basic Education and Literacy"
+    ],
+    schedule: [
+      { time: '10:00 AM', title: 'School Assembly & Kits Distribution (1st to 4th Std)' },
+      { time: '11:30 AM', title: 'Kits Distribution (5th Std Onwards)' },
+      { time: '01:00 PM', title: 'Volunteer Interaction with Students & Staff' }
+    ],
+    images: [
+      "/images/Donation_Drive1.jpeg",
+      "/images/Donation_Drive2.jpeg",
+      "/images/Donation_Drive3.jpeg",
+      "/images/Donation_Drive4.jpeg"
+    ],
+    image: "/images/Donation_Drive1.jpeg",
+    monthYear: "September 2026"
+  },
+  {
+    id: "act-jnanavinayaka-ganeshotsav-2026",
+    title: "Jnanavinayaka Ganeshotsav",
+    category: "Activity",
+    date: new Date("2026-09-24"),
+    location: "Bangalore Institute of Technology",
+    description: "RCBIT members joined and actively participated in the vibrant campus Jnanavinayaka Ganeshotsav cultural celebrations.",
+    longDescription: "Members of the Rotaract Club of Bangalore Institute of Technology actively participated in Jnanavinayaka Ganeshotsav held at Bangalore Institute of Technology, coming together with the campus community in a joyful and culturally enriching celebration. The occasion provided club members with an opportunity to celebrate the festival together while strengthening the sense of belonging, fellowship and togetherness within the club.\n\nThe celebration included Ganesh Pooja along with cultural activities, music and dance. 25 RCBIT members joined the various activities and enjoyed the festive atmosphere. The programme provided an informal platform for members to interact, spend quality time together and connect through cultural traditions, shared experiences and festive activities.\n\nOverall, participating in the event contributed towards stronger interpersonal relationships, team bonding and a positive, vibrant club spirit.",
+    impact: [
+      "25 RCBIT members actively participated in campus celebrations",
+      "Joined in Ganesh Pooja, cultural programs, music, and dance",
+      "Deepened cultural appreciation, teamwork and member camaraderie",
+      "Avenue of Service: Club Service"
+    ],
+    schedule: [
+      { time: '10:00 AM', title: 'Ganesh Pooja & Festive Gathering' },
+      { time: '11:30 AM', title: 'Cultural Activities, Music & Dance' },
+      { time: '01:30 PM', title: 'Prasada Distribution & Fellowship' }
+    ],
+    images: [
+      "/images/Naada_Habba1.jpg"
+    ],
+    image: "/images/Naada_Habba1.jpg",
+    monthYear: "September 2026"
+  },
+  {
+    id: "act-bond-and-beyond-2026",
+    title: "Bond & Beyond",
+    category: "Activity",
+    date: new Date("2026-09-24"),
+    location: "Bangalore Institute of Technology",
+    description: "An energetic club service fellowship session featuring interactive games and team-building fun.",
+    longDescription: "Bond & Beyond was organised as a club service activity with the objective of creating a relaxed, enjoyable and interactive environment for Rotaract members. The activity provided members with an opportunity to take a break from their regular academic and organisational responsibilities and spend quality time together through informal games and fun-filled interactions.\n\nThe session included a variety of interactive games such as Balloon Battle, Chinese Whisper – Dance Edition, bottle and picking games and other fun activities. The games were designed to encourage participation, communication and teamwork among the members. Members actively participated in the activities and interacted with one another in a friendly and informal atmosphere. No prizes were involved, allowing the focus to remain on participation, enjoyment and fellowship.\n\nThe activity helped strengthen interpersonal relationships and fostered a stronger sense of camaraderie among the members. Through shared laughter, games and interaction, members were able to connect with one another outside their regular responsibilities, contributing towards building a positive club culture and encouraging stronger teamwork.",
+    impact: [
+      "25 members actively participated in team-building activities",
+      "Featured interactive games: Balloon Battle, Chinese Whisper – Dance Edition & Bottle Games",
+      "Strengthened interpersonal relationships and club culture",
+      "Avenue of Service: Club Service"
+    ],
+    schedule: [
+      { time: '04:00 PM', title: 'Icebreakers & Balloon Battle' },
+      { time: '04:30 PM', title: 'Chinese Whisper – Dance Edition & Group Games' },
+      { time: '05:00 PM', title: 'Fellowship & Reflection' }
+    ],
+    images: [
+      "/images/Club1_service1.jpg",
+      "/images/Club1_service2.jpg",
+      "/images/Club1_service3.jpg",
+      "/images/Club1_service4.jpg"
+    ],
+    image: "/images/Club1_service1.jpg",
+    monthYear: "September 2026"
+  },
+  {
+    id: "act-nourish-to-flourish-2026",
+    title: "Nourish to Flourish – Practical Wellness & Healthy Living",
+    category: "Activity",
+    date: new Date("2026-09-18"),
+    location: "Online – Google Meet",
+    description: "A wellness session by corporate nutritionist Dr. S. Ramyasri exploring nutrition and healthy lifestyles.",
+    longDescription: "Nourish to Flourish – A Session on Practical Wellness & Healthy Living was an online session hosted by the Rotaract Club of Koramangala and attended by members of the Rotaract Club of Bangalore Institute of Technology. The session focused on understanding the importance of nutrition, healthy eating habits and maintaining overall well-being in everyday life. Seven RCBIT members participated in the session.\n\nThe session was conducted by Dr. S. Ramyasri, Corporate Nutritionist, with a focus on practical wellness and employee well-being. The session provided participants with useful perspectives on maintaining healthy habits and making informed choices related to everyday nutrition and lifestyle. The interactive nature of the session allowed members to engage with the topic and understand how simple and practical approaches can contribute towards better overall well-being.\n\nThe session provided the participating members with an opportunity to learn about wellness in a practical and accessible manner, contributing towards personal development and health awareness.",
+    impact: [
+      "Conducted by Dr. S. Ramyasri (Corporate Nutritionist)",
+      "Hosted by RC Koramangala; attended by 7 RCBIT members",
+      "Focused on everyday nutrition, practical wellness and balanced lifestyles",
+      "Avenue of Service: Professional Development"
+    ],
+    schedule: [
+      { time: '07:00 PM', title: 'Introduction & Nutrition Overview' },
+      { time: '07:30 PM', title: 'Practical Healthy Living & Q&A' }
+    ],
+    images: [
+      "/images/Youth_wellness1.jpg",
+      "/images/Youth_wellness2.jpg"
+    ],
+    image: "/images/Youth_wellness1.jpg",
+    monthYear: "September 2026"
+  },
+  {
+    id: "act-family-ganesha-2026",
+    title: "Family Ganesha – Celebrating Bappa with Family",
+    category: "Activity",
+    date: new Date("2026-09-18"),
+    location: "Online Participation",
+    description: "A digital festive initiative celebrating family traditions, cultural values, and festive joy.",
+    longDescription: "Family Ganesha – Celebrating Bappa with Family was organised as part of the Ganesh Chaturthi celebrations by the Rotaract Club of Bengaluru BTM. The initiative focused on the values of family, togetherness, devotion, cultural traditions and festive joy. Eight members of the Rotaract Club of Bangalore Institute of Technology participated by submitting and sharing family photographs with Ganesha as part of the digital celebration.\n\nThe activity provided members with an opportunity to celebrate the festival while highlighting the importance of family traditions and shared festive experiences. Through the online participation, members shared glimpses of their celebrations and connected with the wider Rotaract community. The initiative created a warm and positive digital environment where members could appreciate different ways of celebrating the festival and participate in a common cultural experience.\n\nFamily Ganesha encouraged members to celebrate and preserve cultural traditions while strengthening the sense of togetherness within the Rotaract community.",
+    impact: [
+      "8 RCBIT members participated with family festive submissions",
+      "Hosted by Rotaract Club of Bengaluru BTM",
+      "Celebrated cultural heritage, family traditions and fellowship",
+      "Avenue of Service: Club Service"
+    ],
+    schedule: [
+      { time: '10:00 AM', title: 'Digital Submission of Family Festive Photos' },
+      { time: '06:00 PM', title: 'Festive Showcase & Community Fellowship' }
+    ],
+    images: [
+      "/images/Party_in_pink1.jpeg",
+      "/images/Party_in_pink2.jpeg"
+    ],
+    image: "/images/Party_in_pink1.jpeg",
+    monthYear: "September 2026"
+  },
+  {
     id: "act-beyond-the-badge-2026",
     title: "Beyond the Badge – Board of Directors Orientation",
     category: "Meeting",
