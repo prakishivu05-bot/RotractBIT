@@ -174,7 +174,9 @@ export const eventsData = [
     ],
     images: [
       "/images/Project_Vidya_1.jpg",
-      "/images/Project_Vidya_2.png"
+      "/images/Project_Vidya_2.png",
+      "/images/Project_Vidya_3.jpg",
+      "/images/Project_Vidya_4.png"
     ],
     image: "/images/Project_Vidya_1.jpg",
     monthYear: "September 2026"
@@ -199,9 +201,11 @@ export const eventsData = [
       { time: '01:30 PM', title: 'Prasada Distribution & Fellowship' }
     ],
     images: [
-      "/images/Naada_Habba1.jpg"
+      "/images/Ganeshotsav_2026_2.jpg",
+      "/images/Ganeshotsav_2026_1.jpg",
+      "/images/Ganeshotsav_2026_3.png"
     ],
-    image: "/images/Naada_Habba1.jpg",
+    image: "/images/Ganeshotsav_2026_2.jpg",
     monthYear: "September 2026"
   },
   {
