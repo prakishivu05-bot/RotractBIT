@@ -3,6 +3,17 @@ import { ArrowRight, ArrowLeft, X } from "lucide-react";
 import { useState, useEffect, useCallback, useMemo } from "react";
 export default function GalleryPage() {
   const images = useMemo(() => [
+    "/images/Team_2026_1.jpg",
+    "/images/Team_2026_2.png",
+    "/images/Utthana_2026_3.png",
+    "/images/Ganeshotsav_2026_2.jpg",
+    "/images/Ganeshotsav_2026_1.jpg",
+    "/images/Ganeshotsav_2026_3.png",
+    "/images/Project_Vidya_1.jpg",
+    "/images/Project_Vidya_2.png",
+    "/images/Project_Vidya_3.jpg",
+    "/images/Project_Vidya_4.png",
+    "/images/Bond_and_Beyond_1.png",
     "/images/Gallery1.jpeg",
     "/images/Gallery2.jpeg",
     "/images/Gallery3.jpeg",

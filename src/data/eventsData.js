@@ -228,12 +228,13 @@ export const eventsData = [
       { time: '05:00 PM', title: 'Fellowship & Reflection' }
     ],
     images: [
+      "/images/Bond_and_Beyond_1.png",
       "/images/Club1_service1.jpg",
       "/images/Club1_service2.jpg",
       "/images/Club1_service3.jpg",
       "/images/Club1_service4.jpg"
     ],
-    image: "/images/Club1_service1.jpg",
+    image: "/images/Bond_and_Beyond_1.png",
     monthYear: "September 2026"
   },
   {
