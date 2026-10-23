@@ -19,14 +19,11 @@ export const eventsData = [
       { time: '11:15 AM', title: 'Addresses by Dignitaries & Adjournment' }
     ],
     images: [
-      "/images/Installation2.JPG",
-      "/images/Install3.JPG",
-      "/images/Install4.JPG",
-      "/images/Install5.JPG",
-      "/images/Install6.jpeg",
-      "/images/Install7.jpeg"
+      "/images/Utthana_2026_1.jpg",
+      "/images/Utthana_2026_2.png",
+      "/images/Utthana_2026_3.png"
     ],
-    image: "/images/Installation2.JPG",
+    image: "/images/Utthana_2026_1.jpg",
     monthYear: "September 2026"
   },
   {
@@ -176,12 +173,10 @@ export const eventsData = [
       { time: '01:00 PM', title: 'Volunteer Interaction with Students & Staff' }
     ],
     images: [
-      "/images/Donation_Drive1.jpeg",
-      "/images/Donation_Drive2.jpeg",
-      "/images/Donation_Drive3.jpeg",
-      "/images/Donation_Drive4.jpeg"
+      "/images/Project_Vidya_1.jpg",
+      "/images/Project_Vidya_2.png"
     ],
-    image: "/images/Donation_Drive1.jpeg",
+    image: "/images/Project_Vidya_1.jpg",
     monthYear: "September 2026"
   },
   {
