@@ -1,62 +1,36 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState, useEffect } from "react";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import TeamCard from "../components/TeamCard";
 
 export default function Members() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [selectedYear, setSelectedYear] = useState("2026–2027");
   const [direction, setDirection] = useState(1);
-  const [teamPhotoIndex, setTeamPhotoIndex] = useState(0);
-  const [photoDirection, setPhotoDirection] = useState(1);
-
-  const teamPhotos2026 = [
-    "/images/Team_2026_1.jpg", // 3rd uploaded image: Utthāna 2026–27 team on stairs
-    "/images/Team_2026_2.png"  // 5th uploaded image: Installation ceremony dais table photo
-  ];
-
-  const nextPhoto = () => {
-    setPhotoDirection(1);
-    setTeamPhotoIndex((prev) => (prev + 1) % teamPhotos2026.length);
-  };
-
-  const prevPhoto = () => {
-    setPhotoDirection(-1);
-    setTeamPhotoIndex((prev) => (prev - 1 + teamPhotos2026.length) % teamPhotos2026.length);
-  };
-
   const bannerVariants = {
-    enter: (dir) => ({
-      x: dir > 0 ? 320 : -320,
+    enter: {
       opacity: 0,
-      scale: 0.94,
+      scale: 0.97,
       filter: "blur(6px)"
-    }),
+    },
     center: {
-      x: 0,
       opacity: 1,
       scale: 1,
       filter: "blur(0px)",
       transition: {
-        x: { type: "spring", stiffness: 220, damping: 26 },
-        opacity: { duration: 0.4 },
-        scale: { duration: 0.4 },
-        filter: { duration: 0.3 }
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1]
       }
     },
-    exit: (dir) => ({
-      x: dir > 0 ? -320 : 320,
+    exit: {
       opacity: 0,
-      scale: 0.94,
+      scale: 0.97,
       filter: "blur(6px)",
       transition: {
-        x: { type: "spring", stiffness: 220, damping: 26 },
-        opacity: { duration: 0.3 },
-        scale: { duration: 0.3 },
-        filter: { duration: 0.3 }
+        duration: 0.35,
+        ease: [0.7, 0, 0.84, 0]
       }
-    })
+    }
   };
 
   const handleYearChange = (year) => {
@@ -206,15 +180,14 @@ export default function Members() {
       <div style={{
         position: "relative",
         width: "100%",
-        height: isMobile ? "270px" : "480px",
+        height: isMobile ? "220px" : "420px",
         overflow: "hidden",
         marginTop: "85px",
-        background: "#0a0a0f"
+        background: "var(--bg-secondary)"
       }}>
-        <AnimatePresence mode="wait" custom={photoDirection}>
+        <AnimatePresence mode="wait">
           <motion.img
-            key={selectedYear === "2025–2026" ? "banner-2025" : `banner-2026-${teamPhotoIndex}`}
-            custom={photoDirection}
+            key={selectedYear}
             variants={bannerVariants}
             initial="enter"
             animate="center"
@@ -222,15 +195,9 @@ export default function Members() {
             src={
               selectedYear === "2025–2026"
                 ? "/images/Gallery17.jpeg"
-                : teamPhotos2026[teamPhotoIndex]
+                : "/images/Team_2026_Banner.png"
             }
-            alt={
-              selectedYear === "2025–2026"
-                ? "Rotaract BIT Team 2025–2026"
-                : teamPhotoIndex === 0
-                ? "Utthāna 2026–2027 Team"
-                : "Utthāna 2026 Installation Ceremony"
-            }
+            alt={selectedYear === "2025–2026" ? "Rotaract BIT Team 2025–2026" : "Rotaract BIT Team 2026–2027"}
             style={{
               position: "absolute",
               top: 0,
@@ -242,119 +209,6 @@ export default function Members() {
             }}
           />
         </AnimatePresence>
-
-        {/* Ambient Overlay Gradient */}
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 45%, rgba(0,0,0,0.2) 100%)",
-          pointerEvents: "none"
-        }} />
-
-        {/* Next / Prev Controls & Indicators for 2026-2027 Team Photos */}
-        {selectedYear === "2026–2027" && (
-          <>
-            {/* Prev Button */}
-            <motion.button
-              whileHover={{ scale: 1.15, backgroundColor: "rgba(217, 27, 92, 0.9)" }}
-              whileTap={{ scale: 0.9 }}
-              onClick={prevPhoto}
-              aria-label="Previous team photo"
-              style={{
-                position: "absolute",
-                left: isMobile ? "12px" : "30px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                width: isMobile ? "40px" : "52px",
-                height: isMobile ? "40px" : "52px",
-                borderRadius: "50%",
-                background: "rgba(0, 0, 0, 0.55)",
-                border: "1.5px solid rgba(255, 255, 255, 0.4)",
-                color: "#ffffff",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                backdropFilter: "blur(10px)",
-                zIndex: 10,
-                boxShadow: "0 6px 25px rgba(0,0,0,0.45)",
-                transition: "background 0.25s ease"
-              }}
-            >
-              <ChevronLeft size={isMobile ? 22 : 28} />
-            </motion.button>
-
-            {/* Next Button */}
-            <motion.button
-              whileHover={{ scale: 1.15, backgroundColor: "rgba(217, 27, 92, 0.9)" }}
-              whileTap={{ scale: 0.9 }}
-              onClick={nextPhoto}
-              aria-label="Next team photo"
-              style={{
-                position: "absolute",
-                right: isMobile ? "12px" : "30px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                width: isMobile ? "40px" : "52px",
-                height: isMobile ? "40px" : "52px",
-                borderRadius: "50%",
-                background: "rgba(0, 0, 0, 0.55)",
-                border: "1.5px solid rgba(255, 255, 255, 0.4)",
-                color: "#ffffff",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                backdropFilter: "blur(10px)",
-                zIndex: 10,
-                boxShadow: "0 6px 25px rgba(0,0,0,0.45)",
-                transition: "background 0.25s ease"
-              }}
-            >
-              <ChevronRight size={isMobile ? 22 : 28} />
-            </motion.button>
-
-            {/* Indicator Pills / Dots */}
-            <div style={{
-              position: "absolute",
-              bottom: "16px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              zIndex: 10,
-              background: "rgba(0, 0, 0, 0.6)",
-              padding: "6px 16px",
-              borderRadius: "30px",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255, 255, 255, 0.25)"
-            }}>
-              {teamPhotos2026.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    setPhotoDirection(idx > teamPhotoIndex ? 1 : -1);
-                    setTeamPhotoIndex(idx);
-                  }}
-                  style={{
-                    width: idx === teamPhotoIndex ? "26px" : "9px",
-                    height: "9px",
-                    borderRadius: "5px",
-                    background: idx === teamPhotoIndex ? "#d91b5c" : "rgba(255, 255, 255, 0.5)",
-                    border: "none",
-                    cursor: "pointer",
-                    transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)"
-                  }}
-                  aria-label={`Switch to team photo ${idx + 1}`}
-                />
-              ))}
-              <span style={{ color: "#ffffff", fontSize: "0.78rem", fontWeight: "600", marginLeft: "4px", letterSpacing: "0.5px" }}>
-                {teamPhotoIndex === 0 ? "Utthāna 2026–27" : "Installation 2026"}
-              </span>
-            </div>
-          </>
-        )}
       </div>
 
       <div style={{
