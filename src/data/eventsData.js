@@ -45,10 +45,11 @@ export const eventsData = [
       { time: '07:15 PM', title: 'Leadership Coordination & Open Discussion' }
     ],
     images: [
+      "/images/Club_Orientation_2026_1.png",
       "/images/bod_orientation_1.png",
       "/images/BOD_Meet.jpeg"
     ],
-    image: "/images/bod_orientation_1.png",
+    image: "/images/Club_Orientation_2026_1.png",
     monthYear: "September 2026"
   },
   {
@@ -70,10 +71,11 @@ export const eventsData = [
       { time: '08:00 PM', title: 'Administration, Reporting & Governance Q&A' }
     ],
     images: [
+      "/images/Beyond_The_Avenues_1.png",
       "/images/bod_orientation_3.png",
       "/images/District_profMeet.jpeg"
     ],
-    image: "/images/District_profMeet.jpeg",
+    image: "/images/Beyond_The_Avenues_1.png",
     monthYear: "September 2026"
   },
   {
@@ -96,10 +98,11 @@ export const eventsData = [
       { time: '09:10 PM', title: 'Quarterly Action Plan Finalization & Adjournment' }
     ],
     images: [
+      "/images/GBM_Sept_2026_1.png",
       "/images/GBM1.png",
       "/images/GBM2.jpeg"
     ],
-    image: "/images/GBM1.png",
+    image: "/images/GBM_Sept_2026_1.png",
     monthYear: "September 2026"
   },
   {
@@ -121,10 +124,11 @@ export const eventsData = [
       { time: '04:45 PM', title: 'Event Calendar Review & Responsibility Alignment' }
     ],
     images: [
+      "/images/BOD_Connect_1.png",
       "/images/bod_orientation_2.png",
       "/images/BOD_Meet.jpeg"
     ],
-    image: "/images/BOD_Meet.jpeg",
+    image: "/images/BOD_Connect_1.png",
     monthYear: "September 2026"
   },
   {
@@ -146,10 +150,11 @@ export const eventsData = [
       { time: '05:45 PM', title: 'Future Project Planning & Documentation Protocols' }
     ],
     images: [
+      "/images/BOD_Connect_2.png",
       "/images/bod_orientation_5.png",
       "/images/bod_orientation_6.png"
     ],
-    image: "/images/bod_orientation_5.png",
+    image: "/images/BOD_Connect_2.png",
     monthYear: "September 2026"
   },
   {
