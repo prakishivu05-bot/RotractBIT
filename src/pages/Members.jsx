@@ -7,6 +7,31 @@ export default function Members() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [selectedYear, setSelectedYear] = useState("2026–2027");
   const [direction, setDirection] = useState(1);
+  const bannerVariants = {
+    enter: {
+      opacity: 0,
+      scale: 0.97,
+      filter: "blur(6px)"
+    },
+    center: {
+      opacity: 1,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.97,
+      filter: "blur(6px)",
+      transition: {
+        duration: 0.35,
+        ease: [0.7, 0, 0.84, 0]
+      }
+    }
+  };
 
   const handleYearChange = (year) => {
     if (year === selectedYear) return;
@@ -152,12 +177,38 @@ export default function Members() {
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh", paddingBottom: "100px" }}>
 
-      <div style={{ width: "100%", height: isMobile ? "250px" : "450px", overflow: "hidden", marginTop: "85px" }}>
-        <img
-          src="/images/Gallery17.jpeg"
-          alt="Team Group"
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }}
-        />
+      <div style={{
+        position: "relative",
+        width: "100%",
+        height: isMobile ? "220px" : "420px",
+        overflow: "hidden",
+        marginTop: "85px",
+        background: "var(--bg-secondary)"
+      }}>
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={selectedYear}
+            variants={bannerVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            src={
+              selectedYear === "2025–2026"
+                ? "/images/Gallery17.jpeg"
+                : "/images/Team_2026_Banner.png"
+            }
+            alt={selectedYear === "2025–2026" ? "Rotaract BIT Team 2025–2026" : "Rotaract BIT Team 2026–2027"}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: selectedYear === "2025–2026" ? "center 30%" : "center center"
+            }}
+          />
+        </AnimatePresence>
       </div>
 
       <div style={{

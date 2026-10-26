@@ -3,7 +3,9 @@ import {
   Users,
   Globe,
   Briefcase,
-  GraduationCap
+  GraduationCap,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +18,31 @@ export default function Home() {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth < 768);
   const [activeService, setActiveService] = useState(null);
+  const [heroIndex, setHeroIndex] = useState(0);
+  const [heroDirection, setHeroDirection] = useState(1);
+
+  const heroImages = [
+    {
+      src: "/images/Gallery1.jpeg",
+      alt: "Rotaract Club of BIT Team"
+    },
+    {
+      src: "/images/Team_2026_2.png", // Second image: 2026-2027 installation ceremony
+      alt: "Rotaract Club of BIT 2026–2027 Team"
+    }
+  ];
+
+  const nextHero = (e) => {
+    if (e) e.stopPropagation();
+    setHeroDirection(1);
+    setHeroIndex((prev) => (prev + 1) % heroImages.length);
+  };
+
+  const prevHero = (e) => {
+    if (e) e.stopPropagation();
+    setHeroDirection(-1);
+    setHeroIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -145,25 +172,143 @@ export default function Home() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.img 
-            src="/images/Gallery1.jpeg" 
-            alt="Rotaract Team" 
-            animate={{ 
-              borderRadius: [
-                "60% 40% 30% 70% / 60% 30% 70% 40%",
-                "30% 70% 70% 30% / 30% 30% 70% 70%",
-                "60% 40% 30% 70% / 60% 30% 70% 40%"
-              ]
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            style={{ 
-              width: "100%", 
-              maxWidth: isMobile ? "350px" : "600px", 
-              height: isMobile ? "300px" : "450px",
-              objectFit: "cover",
-              boxShadow: "0 20px 50px rgba(192, 31, 92, 0.2)"
-            }} 
-          />
+          <div style={{
+            position: "relative",
+            width: "100%",
+            maxWidth: isMobile ? "350px" : "600px",
+            height: isMobile ? "300px" : "450px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}>
+            <AnimatePresence mode="wait" custom={heroDirection}>
+              <motion.img 
+                key={heroIndex}
+                custom={heroDirection}
+                src={heroImages[heroIndex].src} 
+                alt={heroImages[heroIndex].alt} 
+                initial={{ opacity: 0, x: heroDirection > 0 ? 80 : -80, scale: 0.95 }}
+                animate={{ 
+                  opacity: 1, 
+                  x: 0, 
+                  scale: 1,
+                  borderRadius: [
+                    "60% 40% 30% 70% / 60% 30% 70% 40%",
+                    "30% 70% 70% 30% / 30% 30% 70% 70%",
+                    "60% 40% 30% 70% / 60% 30% 70% 40%"
+                  ]
+                }}
+                exit={{ opacity: 0, x: heroDirection > 0 ? -80 : 80, scale: 0.95 }}
+                transition={{ 
+                  x: { type: "spring", stiffness: 220, damping: 25 },
+                  opacity: { duration: 0.4 },
+                  scale: { duration: 0.4 },
+                  borderRadius: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+                }}
+                style={{ 
+                  width: "100%", 
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center center",
+                  boxShadow: "0 20px 50px rgba(192, 31, 92, 0.25)",
+                  cursor: "pointer"
+                }} 
+                onClick={nextHero}
+              />
+            </AnimatePresence>
+
+            {/* Next Arrow Button */}
+            <motion.button
+              whileHover={{ scale: 1.15, backgroundColor: "rgba(217, 27, 92, 0.95)" }}
+              whileTap={{ scale: 0.9 }}
+              onClick={nextHero}
+              aria-label="Next image"
+              style={{
+                position: "absolute",
+                right: isMobile ? "-8px" : "-20px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                width: isMobile ? "40px" : "50px",
+                height: isMobile ? "40px" : "50px",
+                borderRadius: "50%",
+                background: "rgba(0, 0, 0, 0.65)",
+                border: "2px solid rgba(255, 255, 255, 0.5)",
+                color: "#ffffff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                backdropFilter: "blur(10px)",
+                zIndex: 10,
+                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.35)",
+                transition: "background 0.25s ease"
+              }}
+            >
+              <ChevronRight size={isMobile ? 22 : 28} />
+            </motion.button>
+
+            {/* Prev Arrow Button */}
+            <motion.button
+              whileHover={{ scale: 1.15, backgroundColor: "rgba(217, 27, 92, 0.95)" }}
+              whileTap={{ scale: 0.9 }}
+              onClick={prevHero}
+              aria-label="Previous image"
+              style={{
+                position: "absolute",
+                left: isMobile ? "-8px" : "-20px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                width: isMobile ? "40px" : "50px",
+                height: isMobile ? "40px" : "50px",
+                borderRadius: "50%",
+                background: "rgba(0, 0, 0, 0.65)",
+                border: "2px solid rgba(255, 255, 255, 0.5)",
+                color: "#ffffff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                backdropFilter: "blur(10px)",
+                zIndex: 10,
+                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.35)",
+                transition: "background 0.25s ease"
+              }}
+            >
+              <ChevronLeft size={isMobile ? 22 : 28} />
+            </motion.button>
+
+            {/* Indicator Dots */}
+            <div style={{
+              position: "absolute",
+              bottom: isMobile ? "-28px" : "-35px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              zIndex: 10
+            }}>
+              {heroImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    setHeroDirection(idx > heroIndex ? 1 : -1);
+                    setHeroIndex(idx);
+                  }}
+                  style={{
+                    width: idx === heroIndex ? "26px" : "8px",
+                    height: "8px",
+                    borderRadius: "4px",
+                    background: idx === heroIndex ? "#d91b5c" : "rgba(128, 128, 128, 0.45)",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)"
+                  }}
+                  aria-label={`Switch to hero slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </motion.div>
       </section>
 
